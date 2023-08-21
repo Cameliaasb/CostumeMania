@@ -1,0 +1,46 @@
+<%# navbar  %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%# logo %>
+    <a class="navbar-brand" href="#">
+      <img src=<%=asset_path("logo.png") %> />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
+      <div class="search-form-control form-group ">
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Search costume" />
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <%# Ajouter un costume => si t'es pas connecté: te demande de te connecter/créer un compte %>
+            <a class="nav-link" href="#">Add a costume</a>
+          </li>
+          <li class="nav-item dropdown">
+          <%# user account %>
+            <%# avatar %>
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%=asset_path("user_logo.png") %> />
+            <%# user actions %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%# Si t'es pas connecté %>
+              <a class="dropdown-item" href="#">Log in</a>
+              <a class="dropdown-item" href="#">Sign in</a>
+              <%# Si t'es connecté %>
+              <%# <a class="dropdown-item" href="#"> Bookings </a>
+              <a class="dropdown-item" href="#"> Costumes </a> %>
+              <%# <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a> %>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
