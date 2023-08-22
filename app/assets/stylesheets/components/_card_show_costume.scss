@@ -1,0 +1,38 @@
+.card-show {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px 32px;
+  width: 100%;
+  margin-bottom: 62px;
+  
+}
+
+.card-show > img {
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+
+}
+
+.card-show h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-show p {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.form-blank {
+  width: 20%;
+  background-color: chocolate;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+
