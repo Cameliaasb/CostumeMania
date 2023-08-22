@@ -2,9 +2,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%# logo %>
-    <a class="navbar-brand" href="#">
-      <img src=<%=asset_path("logo.png") %> />
-    </a>
+    <%= link_to root_path do %>
+      <%= image_tag "logo.png", class:"navbar-brand", width:120%>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,7 +18,6 @@
       </div>
     </form>
 
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item">
@@ -31,13 +30,16 @@
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%=asset_path("user_logo.png") %> />
             <%# user actions %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%# Si t'es pas connecté %>
-              <a class="dropdown-item" href="#">Log in</a>
-              <a class="dropdown-item" href="#">Sign in</a>
               <%# Si t'es connecté %>
-              <%# <a class="dropdown-item" href="#"> Bookings </a>
-              <a class="dropdown-item" href="#"> Costumes </a> %>
-              <%# <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a> %>
+              <% if user_signed_in? %>
+              <%=link_to 'Booking', new_user_session_path, class:"dropdown-item" %>
+              <%=link_to 'Costumes', new_user_session_path, class:"dropdown-item" %>
+              <%=link_to 'Log-out', destroy_user_session_path, data:{turbo_method: :delete}, class:"dropdown-item" %>
+              <%# Si t'es pas connecté %>
+              <% else %>
+              <%=link_to 'Log-in', new_user_session_path, class:"dropdown-item" %>
+              <%=link_to 'Sign-in', new_user_registration_path, class:"dropdown-item"%>
+              <% end %>
             </div>
           </li>
       </ul>
