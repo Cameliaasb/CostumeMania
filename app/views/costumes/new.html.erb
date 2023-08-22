@@ -1,2 +1,9 @@
-
-
+<%= simple_form_for @costume do |f| %>
+  <%= f.input :name, label: 'Choose a title for your costume'%>
+  <%= f.input :size, collection: ["XS", "S", "M", "L", "XL"] %>
+  <%= f.input :price %>
+  <%= f.input :condition, collection: ["new", "average", "used"] %>
+  <%= f.input :min_duration %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit %>
+<% end %>
