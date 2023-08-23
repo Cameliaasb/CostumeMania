@@ -3,12 +3,17 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 16px 32px;
   width: 100%;
-  margin-bottom: 62px;
+  margin-bottom: 42px;
+  background-color: #F6F4EB;
+  font-family: 'Oxygen', sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
   
 }
 
 .card-show > img {
-  height: 50%;
+  height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 4px;
@@ -16,23 +21,40 @@
 }
 
 .card-show h2 {
-  font-size: 16px;
+  margin-top: 16px;
+  font-size: 24px;
   font-weight: bold;
+  font-family: 'Oxygen', sans-serif;
+  display: flex;
+  justify-content: center;
+  color: #0D1282;
 }
 
 .card-show p {
-  font-size: 12px;
+  font-size: 18px;
   opacity: 0.7;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .form-blank {
-  width: 20%;
-  background-color: chocolate;
+  display: flex;
+  justify-content: center;
+  color: #0D1282;
+  
 }
 .card-footer {
   display: flex;
-  justify-content: space-between;
-  margin-top: 32px;
+  flex-direction: column;
+  margin-top: 22px;
+  gap: 60px;
 }
+
+.btn-submit {
+  background-color: #0D1282;
+  color: beige;
+  border-radius: 4px;
+}
+
+
 
 

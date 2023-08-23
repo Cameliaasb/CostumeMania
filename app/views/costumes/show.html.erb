@@ -3,10 +3,13 @@
   <div class="card-footer">
     <div class="card-show-infos">
       <h2> <%= @costume.name %></h2>
-      <p><%= @costume.description %></p>
-      <p><%= @costume.age %></p>
+      <h2 class="card-show-pricing"> <%= @costume.price %>€/day </h2>
+      <br>
+      <p>Description : <%= @costume.description %></p>
+      
+      <p>Size: <%= @costume.age %> - <%= @costume.size %></p>
       <p><%= @costume.gender %></p>
-      <h2 class="card-show-pricing"> <%= @costume.price %>€/jour </h2>
+      <br>
     </div>
 
     <div class="form-blank">
@@ -17,7 +20,7 @@
         <%= f.input :end_date,
                 as: :string,
                 input_html: { data: { controller: "datepicker" } } %>
-        <%= f.button :submit %>
+        <%= f.button :submit, class:"btn-submit" %>
       <% end %>
     </div>
 
