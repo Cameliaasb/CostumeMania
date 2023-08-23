@@ -1,4 +1,5 @@
 class CostumesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   def index
     @costumes = Costume.all
   end
@@ -32,6 +33,6 @@ class CostumesController < ApplicationController
   private
 
   def costume_params
-    params.require(:costume).permit(:photo, :size, :price, :condition, :name, :min_duration)
+    params.require(:costume).permit(:photo, :size, :price, :condition, :name, :min_duration, :age, :gender, :description)
   end
 end
