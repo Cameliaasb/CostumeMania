@@ -1,0 +1,22 @@
+<div class="card-show">
+  <img src="https://cdn.beebs.app/19180292-b886-40a4-9369-13557aef845f.jpg" />
+  <div class="card-footer">
+    <div class="card-show-infos">
+      <h2> Spider man</h2>
+      <p>Costume porté à quelques occasions</p>
+      <h2 class="card-show-pricing">9 euros par jour </h2>
+    </div>
+    <div class="form-blank">
+    <%= simple_form_for @booking do |f| %>
+    <%= f.input :start_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+    <%= f.input :end_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+    <%= f.button :submit %>
+<% end %>
+
+    </div>
+  </div>
+</div>
