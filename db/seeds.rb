@@ -11,10 +11,10 @@ user1 = User.create!(first_name: "Jack", last_name: "Sparrow", password: "alcool
 
 Costume.destroy_all
 
-Costume.create!(name: 'Spider Man Costume', size: "S", condition: "new", price: 3, owner: user1)
-Costume.create!(name: 'Cinderella Costume', size: "M", condition: "used", price: 1, owner: user1)
-Costume.create!(name: 'Pirate Costume', size: "L", condition: "average", price: 2, owner: user1)
-Costume.create!(name: 'Batman Costume', size: "XL", condition: "new", price: 4, owner: user1)
-Costume.create!(name: 'Doctor Costume', size: "M", condition: "new", price: 4, owner: user1)
-Costume.create!(name: 'Mermaid Costume', size: "XL", condition: "used", price: 2, owner: user1)
-Costume.create!(name: 'Iron man Costume', size: "L", condition: "average", price: 5, owner: user1)
+Costume.create!(name: 'Spider Man Costume', size: "S", condition: "new", price: 3, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
+Costume.create!(name: 'Cinderella Costume', size: "M", condition: "used", price: 1, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
+Costume.create!(name: 'Pirate Costume', size: "L", condition: "average", price: 2, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
+Costume.create!(name: 'Batman Costume', size: "XL", condition: "new", price: 4, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
+Costume.create!(name: 'Doctor Costume', size: "M", condition: "new", price: 4, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
+Costume.create!(name: 'Mermaid Costume', size: "XL", condition: "used", price: 2, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
+Costume.create!(name: 'Iron man Costume', size: "L", condition: "average", price: 5, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
