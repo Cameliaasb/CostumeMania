@@ -1,12 +1,15 @@
-<%= simple_form_for @costume do |f| %>
-  <%= f.input :name, label: 'Choose a title for your costume'%>
-  <%= f.input :size, collection: ["XS", "S", "M", "L", "XL"] %>
-  <%= f.input :gender, collection: ["Male", "Female", "Unisex"] %>
-  <%= f.input :age, collection: ["Adults", "Children"] %>
-  <%= f.input :price %>
-  <%= f.input :description %>
-  <%= f.input :condition, collection: ["new", "average", "used"] %>
-  <%= f.input :min_duration %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
-<% end %>
+
+<div class="container-home">
+  <%= simple_form_for @costume do |f| %>
+    <%= f.input :name, label: 'Choose a title for your costume', class:"input-shadow"%>
+    <%= f.input :size, collection: ["XS", "S", "M", "L", "XL"], class:"input-shadow" %>
+    <%= f.input :gender, collection: ["Male", "Female", "Unisex"], class:"input-shadow" %>
+    <%= f.input :age, collection: ["Adults", "Children"], class:"input-shadow" %>
+    <%= f.input :price, class:"input-shadow" %>
+    <%= f.input :description, class:"input-shadow" %>
+    <%= f.input :condition, collection: ["new", "average", "used"], class:"input-shadow" %>
+    <%= f.input :min_duration, class:"input-shadow" %>
+    <%= f.input :photo, as: :file, class:"input-shadow" %>
+    <%= f.button :submit, value:"Add a new costume", class:"btn-submit" %>
+  <% end %>
+</div>
