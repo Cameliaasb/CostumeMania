@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :monuments
   devise_for :users
 
   root to: "costumes#index"

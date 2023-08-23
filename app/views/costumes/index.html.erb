@@ -33,6 +33,7 @@
     </div>
 
     <% @costumes.each do |costume| %>
+      <%= link_to costume_path(costume) , class:"text-decoration-none text-dark" do %>
       <div class="card-trip">
       <img src="https://cdn.beebs.app/19180292-b886-40a4-9369-13557aef845f.jpg" />
         <div class="card-trip-infos">
@@ -43,6 +44,7 @@
           <h2 class="card-trip-pricing"> <%= costume.price %>£/day</h2>
         </div>
       </div>
+      <% end %>
     <% end %>
 
   </div>
