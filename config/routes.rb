@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :monuments
   devise_for :users
 
   root to: "costumes#index"
@@ -7,9 +6,6 @@ Rails.application.routes.draw do
   resources :costumes, only: %i[index show new create] do
     resources :bookings, only: %i[new create]
   end
-
-  get "/show", to: "pages#show"
-  resources :costumes, only: %i[index show new create]
 
   # root to: "costumes#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -37,50 +37,52 @@ puts "image fonctionne"
 
 Costume.destroy_all
 
-costume1 = Costume.new(name: 'Spider Man Costume', size: "S", condition: "new", price: 3, owner: user1)
+
+costume1 = Costume.new(name: 'Spider Man Costume', size: "S", condition: "new", price: 3, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume1.photo.attach(io: file1, filename: "spider-man.png", content_type: "image/jpg")
 costume1.save
 
-costume2 = Costume.new(name: 'Cinderella Costume', size: "M", condition: "used", price: 1, owner: user1)
+costume2 = Costume.new(name: 'Cinderella Costume', size: "M", condition: "used", price: 1, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume2.photo.attach(io: file2, filename: "cinderella.png", content_type: "image/jpg")
 costume2.save
 
-costume3 = Costume.new(name: 'Pirate Costume', size: "L", condition: "average", price: 2, owner: user1)
+costume3 = Costume.new(name: 'Pirate Costume', size: "L", condition: "average", price: 2, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume3.photo.attach(io: file3, filename: "pirate.png", content_type: "image/jpg")
 costume3.save
 
-costume4 = Costume.new(name: 'Batman Costume', size: "XL", condition: "new", price: 4, owner: user1)
+costume4 = Costume.new(name: 'Batman Costume', size: "XL", condition: "new", price: 4, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume4.photo.attach(io: file4, filename: "batman.png", content_type: "image/jpg")
 costume4.save
 
-costume5 = Costume.new(name: 'Doctor Costume', size: "M", condition: "new", price: 4, owner: user1)
+costume5 = Costume.new(name: 'Doctor Costume', size: "M", condition: "new", price: 4, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume5.photo.attach(io: file5, filename: "doctor.png", content_type: "image/jpg")
 costume5.save
 
-costume6 = Costume.new(name: 'Mermaid Costume', size: "XL", condition: "used", price: 2, owner: user1)
+costume6 = Costume.new(name: 'Mermaid Costume', size: "XL", condition: "used", price: 2, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume6.photo.attach(io: file6, filename: "mermaid.png", content_type: "image/jpg")
 costume6.save
 
-costume7 = Costume.new(name: 'Iron man Costume', size: "L", condition: "average", price: 5, owner: user1)
+costume7 = Costume.new(name: 'Iron man Costume', size: "L", condition: "average", price: 5, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume7.photo.attach(io: file7, filename: "iron-man.png", content_type: "image/jpg")
 costume7.save
 
-costume8 = Costume.new(name: 'Fireman Costume', size: "XS", condition: "new", price: 3, owner: user1)
+costume8 = Costume.new(name: 'Fireman Costume', size: "XS", condition: "new", price: 3, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume8.photo.attach(io: file8, filename: "fireman.png", content_type: "image/jpg")
 costume8.save
 
-costume9 = Costume.new(name: 'Thor Costume', size: "L", condition: "average", price: 7, owner: user1)
+costume9 = Costume.new(name: 'Thor Costume', size: "L", condition: "average", price: 7, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume9.photo.attach(io: file9, filename: "thor.png", content_type: "image/jpg")
 costume9.save
 
-costume10 = Costume.new(name: 'Gost Costume', size: "XL", condition: "used", price: 7, owner: user1)
+costume10 = Costume.new(name: 'Gost Costume', size: "XL", condition: "used", price: 7, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume10.photo.attach(io: file10, filename: "ghost.png", content_type: "image/jpg")
 costume10.save
 
-costume11 = Costume.new(name: 'Moana Costume', size: "M", condition: "new", price: 7, owner: user1)
+costume11 = Costume.new(name: 'Moana Costume', size: "M", condition: "new", price: 7, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume11.photo.attach(io: file11, filename: "moana.png", content_type: "image/jpg")
 costume11.save
 
-costume12 = Costume.new(name: 'Skull king Costume', size: "M", condition: "new", price: 7, owner: user1)
+costume12 = Costume.new(name: 'Skull king Costume', size: "M", condition: "new", price: 7, owner: user1, age: "Adults", gender: "Male", description: "Worn only a few times, small defaults barely visible")
 costume12.photo.attach(io: file12, filename: "skull_king.png", content_type: "image/jpg")
 costume12.save
+
