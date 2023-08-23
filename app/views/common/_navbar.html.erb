@@ -22,7 +22,9 @@
       <ul class="navbar-nav me-auto">
           <li class="nav-item">
             <%# Ajouter un costume => si t'es pas connecté: te demande de te connecter/créer un compte %>
-            <a class="nav-link" href="#">Add a costume</a>
+            <% if user_signed_in? %>
+            <%=link_to 'Add a costume', new_costume_path, class:"nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
           <%# user account %>

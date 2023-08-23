@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :monuments
   devise_for :users
-  root to: "pages#home"
+
+  root to: "costumes#index"
 
   resources :costumes, only: %i[index show new create] do
     resources :bookings, only: %i[new create]
