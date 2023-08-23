@@ -5,6 +5,7 @@ class CostumesController < ApplicationController
 
   def show
     @costume = Costume.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
