@@ -2,7 +2,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 250px;
+  width: 280px;
   border-radius: 4px;
 }
 
@@ -10,6 +10,7 @@
   height: 80%;
   width: 100%;
   object-fit: cover;
+  border-bottom: 1px solid #F6F4EB;
 }
 
 .card-trip h2 {
@@ -36,7 +37,9 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 70px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding-left: 10px;
   padding-right: 10px;
 }

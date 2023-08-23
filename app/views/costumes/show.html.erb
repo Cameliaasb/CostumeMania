@@ -1,26 +1,26 @@
 <div class="card-show">
       <%= cl_image_tag @costume.photo.key, height: 700, width: 500, crop: :fill %>
   <div class="card-footer">
+
     <div class="card-show-infos">
       <h2> <%= @costume.name %></h2>
       <h2 class="card-show-pricing"> <%= @costume.price %>€/day </h2>
-      <br>
       <p>Description : <%= @costume.description %></p>
-
       <p>Size: <%= @costume.age %> - <%= @costume.size %></p>
       <p><%= @costume.gender %></p>
-      <br>
     </div>
 
     <div class="form-blank">
       <%= simple_form_for [@costume, @booking] do |f| %>
         <%= f.input :start_date,
+                label: "From",
                 as: :string,
-                input_html: { data: { controller: "datepicker" } } %>
+                input_html: { data: { controller: "datepicker" }} %>
         <%= f.input :end_date,
+                label: "To",
                 as: :string,
                 input_html: { data: { controller: "datepicker" } } %>
-        <%= f.button :submit, class:"btn-submit" %>
+        <%= f.button :submit, class:"btn-submit", value:"Book this costume" %>
       <% end %>
     </div>
 
