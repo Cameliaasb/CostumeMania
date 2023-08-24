@@ -10,8 +10,8 @@
         <p>Gender : <%= booking.costume.gender %></p>
         <p>Start date : <%= booking.start_date %> - End date : <%= booking.end_date %></p>
         <div class="card-product-btn">
-          <button type="button" class="btn btn-primary rounded-5"><%= link_to "Delete Booking", costume_booking_path(booking.costume, booking), class:"text-decoration-none text-dark" ,data: {turbo_method: :delete, turbo_confirm: "Delete this Booking?"}%></button>
-          <button type="button" class="btn btn-primary rounded-5"><%= link_to "Edit Booking", edit_costume_booking_path(booking.costume, booking), class:"text-decoration-none text-dark"%></button>
+          <%= link_to "Delete Booking", costume_booking_path(booking.costume, booking), class: "bouton" ,data: {turbo_method: :delete, turbo_confirm: "Delete this Booking?"}%>
+          <%= link_to "Edit Booking", edit_costume_booking_path(booking.costume, booking), class:"bouton"%>
         </div>
       </div>
     </div>
