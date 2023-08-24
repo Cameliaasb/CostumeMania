@@ -1,0 +1,20 @@
+<div class="container-home">
+  <div class="d-flex flex-column gap-3">
+    <% @bookings.each do |booking| %>
+    <div class="card-product">
+      <%= cl_image_tag booking.costume.photo.key, crop: :fill %>
+      <div class="card-product-infos">
+        <h2><%= booking.costume.name %></h2>
+        <p><%= booking.costume.description %></p>
+        <p>Size : <%= booking.costume.age %> - <%= booking.costume.size %></p>
+        <p>Gender : <%= booking.costume.gender %></p>
+        <p>Start date : <%= booking.start_date %> - End date : <%= booking.end_date %></p>
+        <div class="card-product-btn">
+          <button type="button" class="btn btn-primary rounded-5"><%= link_to "Delete Booking", costume_booking_path(booking.costume, booking), class:"text-decoration-none text-dark" ,data: {turbo_method: :delete, turbo_confirm: "Delete this Booking?"}%></button>
+          <button type="button" class="btn btn-primary rounded-5"><%= link_to "Edit Booking", edit_costume_booking_path(booking.costume, booking), class:"text-decoration-none text-dark"%></button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: "costumes#index"
 
-  resources :costumes, only: %i[index show new create] do
+  resources :costumes, only: %i[index show new create destroy] do
     resources :bookings, only: %i[new create edit update destroy]
 
   end
