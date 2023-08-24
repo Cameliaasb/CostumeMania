@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   get '/my_costumes', to: 'costumes#my_costumes'
   get '/my_bookings', to: 'bookings#my_bookings'
+  get '/wordsearch', to: 'costumes#search'
 end

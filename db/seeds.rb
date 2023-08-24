@@ -35,6 +35,8 @@ file11 = URI.open("https://www.deguisement-mania.fr/wp-content/uploads/2020/09/D
 puts "image fonctionne"
 file12 = URI.open("https://cdn.media.amplience.net/i/partycity/P889705?$large$&fmt=auto&qlt=default")
 puts "image fonctionne"
+file13 = URI.open("https://cdn.media.amplience.net/i/partycity/P889705?$large$&fmt=auto&qlt=default")
+puts "image fonctionne"
 
 Costume.destroy_all
 
@@ -85,3 +87,7 @@ costume11.save
 costume12 = Costume.new(name: 'Skull king Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 7, owner: user2, age: "Adults", gender: "Unisex", description: "Regal Skull King costume: ornate crown, dark robes, skeletal accents. Ideal for themed events, parties, and dramatic flair.")
 costume12.photo.attach(io: file12, filename: "skull_king.png", content_type: "image/jpg")
 costume12.save
+
+costume13 = Costume.new(name: 'Skull king Costume', size: "M", condition: "new", price: 7, owner: user2, age: "Adults", gender: "Unisex", description: "Regal Skull King costume: ornate crown, dark robes, skeletal accents. Ideal for themed events, parties, and dramatic flair.")
+costume13.photo.attach(io: file13, filename: "skull_king.png", content_type: "image/jpg")
+costume13.save

@@ -1,9 +1,16 @@
+require 'algolia'
+
 class CostumesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_costume, only: %i[edit update destroy]
 
   def index
-    @costumes = Costume.all
+    if params[:query]
+      Costume.algolia_reindex!
+      @costumes = Costume.algolia_search(params[:query])
+    else
+      @costumes = Costume.all
+    end
   end
 
   def show
