@@ -4,4 +4,9 @@ class Costume < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   validates :size, :condition, :price, :name, :gender, :age, :description, presence: true
+
+  SIZE = ["XS", "S", "M", "L", "XL"]
+  GENDER = ["Men", "Women", "Unisex"]
+  AGE = ["Adults", "Kids"]
+  CONDITION = ["New", "Average", "Used"]
 end

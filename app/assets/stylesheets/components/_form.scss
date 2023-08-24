@@ -9,8 +9,12 @@
 .multi-input {
   display: flex;
   justify-content: space-between;
-  > div {
-  width: 30%; 
+  > .three-row {
+  width: 30%;
+  }
+
+  > .two-row {
+    width: 45%;
   }
 
 }
