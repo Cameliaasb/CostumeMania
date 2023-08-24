@@ -13,8 +13,9 @@ class BookingsController < ApplicationController
     @booking.costume = Costume.find(params[:costume_id])
     @booking.client = current_user
     if @booking.save
-      redirect_to costume_path(@booking.costume)
+      redirect_to my_bookings_path
     else
+      # pas de gestion des erreurs par datepicker
       render :new, status: :unprocessable_entity
     end
   end
@@ -27,8 +28,11 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    redirect_to my_bookings_path, status: :see_other
+    if @booking.update(booking_params)
+      redirect_to my_bookings_path
+    else
+      render :update, status: :unprocessable_entity
+    end
   end
 
   def destroy
