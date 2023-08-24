@@ -1,10 +1,8 @@
-<%= render "common/banner" %>
-
 <div class="container-home">
   <div class="cards">
 
     <% @costumes.each do |costume| %>
-      <% if current_user != costume.owner %>
+      <% if current_user == costume.owner %>
         <%= link_to costume_path(costume) , class:"text-decoration-none text-dark" do %>
           <div class="card-trip">
             <%= cl_image_tag costume.photo.key, height: 700, width: 500, crop: :fill %>
