@@ -2,40 +2,41 @@
       <%= cl_image_tag @costume.photo.key, height: 700, width: 500, crop: :fill %>
   <div class="card-footer">
 
-    <div class="card-show-infos">
+    <div>
       <h2> <%= @costume.name %></h2>
       <h3 class="card-show-pricing"> <%= @costume.price %>€ / Day </h3>
-      <p>Description : <%= @costume.description %></p>
-      <p>Size : <%= @costume.age %> - <%= @costume.size %></p>
-      <p>Gender : <%= @costume.gender %></p>
+      <div class="card-show-infos">
+        <p>Description : <%= @costume.description %></p>
+        <p>Size : <%= @costume.age %> - <%= @costume.size %></p>
+        <p>Gender : <%= @costume.gender %></p>
+      </div>
     </div>
 
     <% if current_user != @costume.owner %>
-
-    <div class="form-blank">
-      <%= simple_form_for [@costume, @booking] do |f| %>
-        <%= f.input :start_date,
-                label: "From",
-                as: :string,
-                input_html: { data: { controller: "datepicker" }} %>
-        <%= f.input :end_date,
-                label: "To",
-                as: :string,
-                input_html: { data: { controller: "datepicker" } } %>
-        <%= f.button :submit, class:"btn-submit", value:"Book this costume" %>
-      <% end %>
-    </div>
+      <div class="form-blank">
+          <%= simple_form_for [@costume, @booking] do |f| %>
+            <%= f.input :start_date,
+                    label: "From",
+                    as: :string,
+                    input_html: { data: { controller: "datepicker" }} %>
+            <%= f.input :end_date,
+                    label: "To",
+                    as: :string,
+                    input_html: { data: { controller: "datepicker" } } %>
+            <%= f.button :submit, class:"btn-submit", value:"Book this costume" %>
+          <% end %>
+        </div>
 
     <% else %>
-    <div class="bouton-edit-delete">
-      <%= link_to "Edit", edit_costume_path(@costume), class:"bouton" %>
-      <br>
-      
-      <%= link_to "Delete",
-          costume_path(@costume), class:"bouton",
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-        %>
-        </div>
+      <div class="bouton-edit-delete">
+        <%= link_to "Edit", edit_costume_path(@costume), class:"bouton" %>
+        <br>
+
+        <%= link_to "Delete",
+            costume_path(@costume), class:"bouton",
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+      </div>
     <% end %>
   </div>
 </div>

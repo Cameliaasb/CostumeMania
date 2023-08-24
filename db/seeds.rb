@@ -91,3 +91,6 @@ costume12.save
 costume13 = Costume.new(name: 'Skull king Costume', size: "M", condition: "new", price: 7, owner: user2, age: "Adults", gender: "Unisex", description: "Regal Skull King costume: ornate crown, dark robes, skeletal accents. Ideal for themed events, parties, and dramatic flair.")
 costume13.photo.attach(io: file13, filename: "skull_king.png", content_type: "image/jpg")
 costume13.save
+
+
+Costume.algolia_reindex!
