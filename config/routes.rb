@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/my_collection', to: 'costumes#my_collection'
   get '/my_bookings', to: 'bookings#my_bookings'
+  get '/wordsearch', to: 'costumes#search'
 end

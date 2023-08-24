@@ -5,9 +5,9 @@
     <%= f.input :size, collection: ["XS", "S", "M", "L", "XL"], class:"input-shadow" %>
     <%= f.input :gender, collection: ["Men", "Woman", "Unisex"], class:"input-shadow" %>
     <%= f.input :age, collection: ["Adults", "Children"], class:"input-shadow" %>
+    <%= f.input :condition, collection: ["new", "average", "used"], class:"input-shadow" %>
     <%= f.input :price, class:"input-shadow" %>
     <%= f.input :description, class:"input-shadow" %>
-    <%= f.input :condition, collection: ["new", "average", "used"], class:"input-shadow" %>
     <%= f.input :min_duration, class:"input-shadow" %>
     <%= f.input :photo, as: :file, class:"input-shadow" %>
     <%= f.button :submit, value:"Add a new costume", class:"btn-submit" %>
