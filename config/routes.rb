@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :costumes, only: %i[index show new create] do
     resources :bookings, only: %i[new create edit update destroy]
+
   end
 
   # root to: "costumes#index"
