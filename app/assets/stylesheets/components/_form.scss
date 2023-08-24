@@ -5,3 +5,16 @@
 .input-shadow {
   box-shadow: 0 2px 6px rgba(0,0,0,0.08) !important;
 }
+
+.multi-input {
+  display: flex;
+  justify-content: space-between;
+  > .three-row {
+  width: 30%;
+  }
+
+  > .two-row {
+    width: 45%;
+  }
+
+}

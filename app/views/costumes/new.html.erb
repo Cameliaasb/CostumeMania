@@ -2,14 +2,18 @@
 <div class="container-home">
   <%= simple_form_for @costume do |f| %>
     <%= f.input :name, label: 'Choose a title for your costume', class:"input-shadow"%>
-    <%= f.input :size, collection: ["XS", "S", "M", "L", "XL"], class:"input-shadow" %>
-    <%= f.input :gender, collection: ["Men", "Woman", "Unisex"], class:"input-shadow" %>
-    <%= f.input :age, collection: ["Adults", "Children"], class:"input-shadow" %>
-    <%= f.input :price, class:"input-shadow" %>
+    <div class="multi-input">
+      <div class="three-row"><%= f.input :size, collection: Costume::SIZE, class:"input-shadow" %></div>
+      <div class="three-row"><%= f.input :gender, collection: Costume::GENDER, class:"input-shadow" %></div>
+      <div class="three-row"><%= f.input :age, collection: Costume::AGE, class:"input-shadow" %></div>
+    </div>
     <%= f.input :description, class:"input-shadow" %>
-    <%= f.input :condition, collection: ["new", "average", "used"], class:"input-shadow" %>
-    <%= f.input :min_duration, class:"input-shadow" %>
-    <%= f.input :photo, as: :file, class:"input-shadow" %>
+    <div class="multi-input">
+      <div class="two-row"> <%= f.input :price, label:"Price per day", class:"input-shadow" %> </div>
+      <div class="two-row"> <%= f.input :condition, collection: Costume::CONDITION, class:"input-shadow" %> </div>
+    </div>
+    <%= f.input :min_duration, label:"Minimum rental duration (in days)", class:"input-shadow" %>
+    <%= f.input :photo, label:"Add a picture", as: :file, class:"input-shadow" %>
     <%= f.button :submit, value:"Add a new costume", class:"btn-submit" %>
   <% end %>
 </div>

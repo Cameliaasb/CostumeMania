@@ -4,11 +4,13 @@
 
     <div class="card-show-infos">
       <h2> <%= @costume.name %></h2>
-      <h2 class="card-show-pricing"> <%= @costume.price %>€/day </h2>
+      <h3 class="card-show-pricing"> <%= @costume.price %>€ / Day </h3>
       <p>Description : <%= @costume.description %></p>
       <p>Size : <%= @costume.age %> - <%= @costume.size %></p>
       <p>Gender : <%= @costume.gender %></p>
     </div>
+
+    <% if current_user != @costume.owner %>
 
     <div class="form-blank">
       <%= simple_form_for [@costume, @booking] do |f| %>
@@ -24,5 +26,16 @@
       <% end %>
     </div>
 
+    <% else %>
+    <div class="bouton-edit-delete">
+      <%= link_to "Edit", edit_costume_path(@costume), class:"bouton" %>
+      <br>
+      
+      <%= link_to "Delete",
+          costume_path(@costume), class:"bouton",
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+        </div>
+    <% end %>
   </div>
 </div>
