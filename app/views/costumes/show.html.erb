@@ -24,5 +24,12 @@
       <% end %>
     </div>
 
+    <% if current_user == @costume.owner %>
+      <%= link_to "Edit", edit_costume_path(@costume), class:"btn" %>
+      <%= link_to "Delete costume",
+          costume_path(@costume), class:"btn",
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+    <% end %>
   </div>
 </div>

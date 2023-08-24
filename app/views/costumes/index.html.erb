@@ -4,20 +4,20 @@
   <div class="cards">
 
     <% @costumes.each do |costume| %>
-      <%= link_to costume_path(costume) , class:"text-decoration-none text-dark" do %>
-      <div class="card-trip">
-      <%= cl_image_tag costume.photo.key, height: 700, width: 500, crop: :fill %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= costume.name %></h2>
-            <p>Size <%= costume.size %></p>
+      <% if current_user != costume.owner %>
+        <%= link_to costume_path(costume) , class:"text-decoration-none text-dark" do %>
+          <div class="card-trip">
+            <%= cl_image_tag costume.photo.key, height: 700, width: 500, crop: :fill %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= costume.name %></h2>
+                <p>Size: <%= costume.size %></p>
+              </div>
+              <h2 class="card-trip-pricing"> <%= costume.price %>€/day</h2>
+            </div>
           </div>
-          <h2 class="card-trip-pricing"> <%= costume.price %>€/day</h2>
-        </div>
-      </div>
+        <% end %>
       <% end %>
     <% end %>
-
   </div>
-
 </div>
