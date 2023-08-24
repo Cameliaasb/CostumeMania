@@ -8,7 +8,8 @@
 require "open-uri"
 User.destroy_all
 
-user1 = User.new(first_name: "Jack", last_name: "Sparrow", password: "alcoolique", email: "toto@gmail.com")
+user1 = User.new(first_name: "Jack", last_name: "Sparrow", password: "azerty", email: "test@gmail.com")
+user2 = User.new(first_name: "Elisabeth", last_name: "Swan", password: "azerty", email: "toto@gmail.com")
 
 file1 = URI.open("https://cdn.beebs.app/19180292-b886-40a4-9369-13557aef845f.jpg")
 puts "image fonctionne"
@@ -37,20 +38,19 @@ puts "image fonctionne"
 
 Costume.destroy_all
 
-
 costume1 = Costume.new(name: 'Spider Man Costume', size: "S", condition: "new", price: 3, owner: user1, age: "Children", gender: "Unisex", description: "Dynamic Spider-Man suit: iconic red and blue, webbed design, muscle definition. Perfect for parties, events, and superhero fun.")
 costume1.photo.attach(io: file1, filename: "spider-man.png", content_type: "image/jpg")
 costume1.save
 
-costume2 = Costume.new(name: 'Cinderella Costume', size: "M", condition: "used", price: 1, owner: user1, age: "Children", gender: "Female", description: "Elegant Cinderella gown: enchanting blue, delicate details, flowing skirt. Ideal for events, parties, and magical moments.")
+costume2 = Costume.new(name: 'Cinderella Costume', size: "M", condition: "used", price: 1, owner: user1, age: "Children", gender: "Woman", description: "Elegant Cinderella gown: enchanting blue, delicate details, flowing skirt. Ideal for events, parties, and magical moments.")
 costume2.photo.attach(io: file2, filename: "cinderella.png", content_type: "image/jpg")
 costume2.save
 
-costume3 = Costume.new(name: 'Pirate Costume', size: "L", condition: "average", price: 2, owner: user1, age: "Children", gender: "Male", description: "Authentic pirate ensemble: tricorn hat, billowy shirt, weathered vest, tattered pants, boots, eyepatch, bandana, prop swords & treasure accents. High-quality, versatile, perfect for costumes, events, and parties.")
+costume3 = Costume.new(name: 'Pirate Costume', size: "L", condition: "average", price: 2, owner: user1, age: "Children", gender: "Men", description: "Authentic pirate ensemble: tricorn hat, billowy shirt, weathered vest, tattered pants, boots, eyepatch, bandana, prop swords & treasure accents. High-quality, versatile, perfect for costumes, events, and parties.")
 costume3.photo.attach(io: file3, filename: "pirate.png", content_type: "image/jpg")
 costume3.save
 
-costume4 = Costume.new(name: 'Batman Costume', size: "XL", condition: "new", price: 4, owner: user1, age: "Adults", gender: "Male", description: "Sleek Batman costume: black, cape, emblem, utility belt. Ideal for parties, events, and superhero gatherings.")
+costume4 = Costume.new(name: 'Batman Costume', size: "XL", condition: "new", price: 4, owner: user1, age: "Adults", gender: "Men", description: "Sleek Batman costume: black, cape, emblem, utility belt. Ideal for parties, events, and superhero gatherings.")
 costume4.photo.attach(io: file4, filename: "batman.png", content_type: "image/jpg")
 costume4.save
 
@@ -58,30 +58,30 @@ costume5 = Costume.new(name: 'Doctor Costume', size: "M", condition: "new", pric
 costume5.photo.attach(io: file5, filename: "doctor.png", content_type: "image/jpg")
 costume5.save
 
-costume6 = Costume.new(name: 'Mermaid Costume', size: "XL", condition: "used", price: 2, owner: user1, age: "Adults", gender: "Female", description: "Enchanting mermaid attire: iridescent scales, flowing tail, seashell accents. Ideal for events, parties, and fantasy themes.")
+costume6 = Costume.new(name: 'Mermaid Costume', size: "XL", condition: "used", price: 2, owner: user2, age: "Adults", gender: "Woman", description: "Enchanting mermaid attire: iridescent scales, flowing tail, seashell accents. Ideal for events, parties, and fantasy themes.")
 costume6.photo.attach(io: file6, filename: "mermaid.png", content_type: "image/jpg")
 costume6.save
 
-costume7 = Costume.new(name: 'Iron man Costume', size: "L", condition: "average", price: 5, owner: user1, age: "Children", gender: "Male", description: "Dynamic Iron Man suit: metallic red and gold, arc reactor, detailed armor. Perfect for parties, events, and superhero experiences.")
+costume7 = Costume.new(name: 'Iron man Costume', size: "L", condition: "average", price: 5, owner: user1, age: "Children", gender: "Men", description: "Dynamic Iron Man suit: metallic red and gold, arc reactor, detailed armor. Perfect for parties, events, and superhero experiences.")
 costume7.photo.attach(io: file7, filename: "iron-man.png", content_type: "image/jpg")
 costume7.save
 
-costume8 = Costume.new(name: 'Fireman Costume', size: "XS", condition: "new", price: 3, owner: user1, age: "Children", gender: "Male", description: "Authentic firefighter gear: yellow coat, reflective stripes, helmet, tools. Ideal for events, parties, and heroic roleplay.")
+costume8 = Costume.new(name: 'Fireman Costume', size: "XS", condition: "new", price: 3, owner: user1, age: "Children", gender: "Men", description: "Authentic firefighter gear: yellow coat, reflective stripes, helmet, tools. Ideal for events, parties, and heroic roleplay.")
 costume8.photo.attach(io: file8, filename: "fireman.png", content_type: "image/jpg")
 costume8.save
 
-costume9 = Costume.new(name: 'Thor Costume', size: "L", condition: "average", price: 7, owner: user1, age: "Adults", gender: "Male", description: "Unique Fireman Thor fusion: Mjolnir-themed axe, firefighter outfit with cape. Perfect for creative events, parties, and memorable moments")
+costume9 = Costume.new(name: 'Thor Costume', size: "L", condition: "average", price: 7, owner: user2, age: "Adults", gender: "Men", description: "Unique Fireman Thor fusion: Mjolnir-themed axe, firefighter outfit with cape. Perfect for creative events, parties, and memorable moments")
 costume9.photo.attach(io: file9, filename: "thor.png", content_type: "image/jpg")
 costume9.save
 
-costume10 = Costume.new(name: 'Ghost Costume', size: "XL", condition: "used", price: 7, owner: user1, age: "Adults", gender: "Unisex", description: "Ethereal ghost attire: flowing white gown, pale makeup, haunting aura. Ideal for spooky events, parties, and ghostly themes.")
+costume10 = Costume.new(name: 'Ghost Costume', size: "XL", condition: "used", price: 4, owner: user2, age: "Adults", gender: "Unisex", description: "Ethereal ghost attire: flowing white gown, pale makeup, haunting aura. Ideal for spooky events, parties, and ghostly themes.")
 costume10.photo.attach(io: file10, filename: "ghost.png", content_type: "image/jpg")
 costume10.save
 
-costume11 = Costume.new(name: 'Moana Costume', size: "M", condition: "new", price: 7, owner: user1, age: "Adults", gender: "Female", description: "Adventure-ready Moana costume: tropical dress, necklace, adventurous spirit. Perfect for events, parties, and Disney-themed fun.")
+costume11 = Costume.new(name: 'Moana Costume', size: "M", condition: "new", price: 5, owner: user2, age: "Adults", gender: "Woman", description: "Adventure-ready Moana costume: tropical dress, necklace, adventurous spirit. Perfect for events, parties, and Disney-themed fun.")
 costume11.photo.attach(io: file11, filename: "moana.png", content_type: "image/jpg")
 costume11.save
 
-costume12 = Costume.new(name: 'Skull king Costume', size: "M", condition: "new", price: 7, owner: user1, age: "Adults", gender: "Unisex", description: "Regal Skull King costume: ornate crown, dark robes, skeletal accents. Ideal for themed events, parties, and dramatic flair.")
+costume12 = Costume.new(name: 'Skull king Costume', size: "M", condition: "new", price: 7, owner: user2, age: "Adults", gender: "Unisex", description: "Regal Skull King costume: ornate crown, dark robes, skeletal accents. Ideal for themed events, parties, and dramatic flair.")
 costume12.photo.attach(io: file12, filename: "skull_king.png", content_type: "image/jpg")
 costume12.save

@@ -3,7 +3,7 @@
   <%= simple_form_for @costume do |f| %>
     <%= f.input :name, label: 'Choose a title for your costume', class:"input-shadow"%>
     <%= f.input :size, collection: ["XS", "S", "M", "L", "XL"], class:"input-shadow" %>
-    <%= f.input :gender, collection: ["Male", "Female", "Unisex"], class:"input-shadow" %>
+    <%= f.input :gender, collection: ["Men", "Woman", "Unisex"], class:"input-shadow" %>
     <%= f.input :age, collection: ["Adults", "Children"], class:"input-shadow" %>
     <%= f.input :price, class:"input-shadow" %>
     <%= f.input :description, class:"input-shadow" %>
