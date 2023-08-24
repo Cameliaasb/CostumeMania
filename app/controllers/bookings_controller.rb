@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def my_bookings
+    @bookings = Booking.all
+  end
+
   def new
     @costume = Costume.find(params[:costume_id])
     @booking = Booking.new
@@ -13,6 +17,23 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+    @costume = @booking.costume
+    @booking.client = current_user
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to my_bookings_path, status: :see_other
   end
 
   private
