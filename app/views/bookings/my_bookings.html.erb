@@ -27,11 +27,13 @@
             <% end %>
           </div>
         </div>
-        <% end %>
-    </div>
+        <% if booking.client == current_user %>
             <%= render "reviews/form",
                       costume: booking.costume,
                       review: Review.new %>
+          <%end %>
+        <% end %>
+    </div>
   <% end %>
   </div>
 </div>
