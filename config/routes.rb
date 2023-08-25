@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get '/my_costumes', to: 'costumes#my_costumes'
   get '/my_bookings', to: 'bookings#my_bookings' 
   get '/wordsearch', to: 'costumes#search'
+  get '/costumes/:costume_id/bookings/:id/accept', to: 'bookings#accept', as: "accept"
 end

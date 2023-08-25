@@ -6,7 +6,6 @@ class CostumesController < ApplicationController
 
   def index
     if params[:query]
-      Costume.algolia_reindex!
       @costumes = Costume.algolia_search(params[:query])
     else
       @costumes = Costume.all

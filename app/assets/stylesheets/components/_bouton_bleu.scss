@@ -14,7 +14,7 @@
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
-    font-family: 'Oxygen', sans-serif;  
+    font-family: 'Oxygen', sans-serif;
   }
   .bouton:hover {
     background-color: #ACB1D6;
@@ -22,9 +22,7 @@
     -webkit-transform: translate(0px,5px);
     border-bottom: 1px solid;
   }
-  .bouton-edit-delete{
-    
+  .bouton-edit-delete {
     display: flex;
     justify-content: center;
 }
-
