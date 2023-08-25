@@ -5,10 +5,20 @@ class CostumesController < ApplicationController
   before_action :set_costume, only: %i[edit update destroy]
 
   def index
-    if params[:query]
+    if params[:query] && !params[:query].empty?
+      Costume.algolia_reindex!
       @costumes = Costume.algolia_search(params[:query])
     else
       @costumes = Costume.all
+    end
+    users = User.geocoded
+    @markers = users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window_html: render_to_string(partial: "users/info_window", locals: { user: user }),
+        marker_html: render_to_string(partial: "users/marker", locals: { user: user })
+      }
     end
   end
 

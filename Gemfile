@@ -81,3 +81,4 @@ end
 
 gem 'cloudinary'
 gem "algoliasearch-rails"
+gem "geocoder"

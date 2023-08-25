@@ -1,0 +1,7 @@
+<h2><%= user.first_name %></h2>
+<p><%= user.address %></p>
+<%# <%= link_to costume_path(costumes_id) %>
+<%# <% costumes = Costume.where(owner: user) %>
+<% @costumes.each do |costume| %>
+<p><%= link_to costume.name, costume_path(costume), class:"text-decoration-none"  if costume.owner == user%></p>
+<% end %>
