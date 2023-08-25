@@ -5,8 +5,7 @@
 
     <% @costumes.each do |costume| %>
       <% if current_user != costume.owner %>
-        <%= link_to costume_path(costume) , class:"text-decoration-none text-dark" do %>
-          <div class="card-trip">
+        <%= link_to costume_path(costume) , class:"card-trip text-decoration-none text-dark" do %>
             <%= cl_image_tag costume.photo.key, height: 700, width: 500, crop: :fill %>
             <div class="card-trip-infos">
               <div>
@@ -15,12 +14,11 @@
               </div>
               <h2 class="card-trip-pricing"> <%= costume.price %>€/day</h2>
             </div>
-          </div>
         <% end %>
       <% end %>
     <% end %>
   </div>
-  <div class="map-box" style="width: 40%; height: 600px;"
+  <div class="map-box"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
