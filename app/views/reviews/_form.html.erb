@@ -1,0 +1,5 @@
+<%= form_for [costume, review] do |f| %>
+  <%= f.collection_radio_buttons :rating, [[0," "],[1," "],[2," "]], :first, :last %>
+  <%= f.text_field :content %>
+  <%= f.submit "Go"%>
+<% end %>
