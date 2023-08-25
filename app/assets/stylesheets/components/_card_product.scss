@@ -22,6 +22,16 @@
   color: #0D1282;
 }
 
+.card-product h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  font-family: 'Oxygen', sans-serif;
+  color: #C58940;
+}
+
+
+
 .card-product p {
   font-size: 12px;
   line-height: 1.4;
@@ -36,7 +46,6 @@
 }
 
 .card-product .card-product-infos .card-product-btn {
-  margin-top: 45px;
-  margin-left: 15px;
+  padding: 20px 0px;
   font-family: 'Oxygen', sans-serif;
 }
