@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def my_bookings
-    @bookings = Booking.where(client: current_user)
+    @bookings = Booking.all
+    # a rectifier par la suite : seule façon d'avoir les bookings reçus et envoyés pour la démo
   end
 
   def new
@@ -18,6 +19,13 @@ class BookingsController < ApplicationController
       # pas de gestion des erreurs par datepicker
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "Accepted"
+    @booking.save
+    redirect_to my_bookings_path
   end
 
   def edit
@@ -44,6 +52,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 end

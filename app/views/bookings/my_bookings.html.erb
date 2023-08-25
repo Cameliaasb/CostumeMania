@@ -4,14 +4,26 @@
     <div class="card-product">
       <%= cl_image_tag booking.costume.photo.key, crop: :fill %>
       <div class="card-product-infos">
+        <div class="border-bottom pb-2 mb-2">
+          <% if booking.costume.owner == current_user %>
+            <h3>Incoming reservation</h3>
+          <% else %>
+            <h3>Reservation request</h3>
+          <% end %>
+        </div>
         <h2><%= booking.costume.name %></h2>
+          <strong> <p>Reservation status : <%= booking.status %></p> </strong>
         <p><%= booking.costume.description %></p>
         <p>Size : <%= booking.costume.age %> - <%= booking.costume.size %></p>
         <p>Gender : <%= booking.costume.gender %></p>
         <p>Start date : <%= booking.start_date %> - End date : <%= booking.end_date %></p>
         <div class="card-product-btn">
-          <%= link_to "Delete Booking", costume_booking_path(booking.costume, booking), class: "bouton" ,data: {turbo_method: :delete, turbo_confirm: "Delete this Booking?"}%>
-          <%= link_to "Edit Booking", edit_costume_booking_path(booking.costume, booking), class:"bouton"%>
+          <%= link_to "Cancel Booking", costume_booking_path(booking.costume, booking), class: "bouton" ,data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"}%>
+          <% if booking.costume.owner == current_user && booking.status != "Accepted" %>
+            <%= link_to "Accept", accept_path(booking.costume, booking), class:"bouton" %>
+          <% elsif booking.costume.owner != current_user %>
+            <%= link_to "Edit Booking", edit_costume_booking_path(booking.costume, booking), class:"bouton" %>
+          <% end %>
         </div>
       </div>
     </div>

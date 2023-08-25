@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_093442) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_25_084020) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_093442) do
     t.bigint "costume_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "Pending"
     t.index ["costume_id"], name: "index_bookings_on_costume_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -66,14 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_093442) do
     t.string "gender"
     t.string "age"
     t.index ["user_id"], name: "index_costumes_on_user_id"
-  end
-
-  create_table "monuments", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.date "opening_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
