@@ -8,8 +8,12 @@
 require "open-uri"
 User.destroy_all
 
-user1 = User.new(first_name: "Jack", last_name: "Sparrow", password: "azerty", email: "test@gmail.com")
-user2 = User.new(first_name: "Elisabeth", last_name: "Swan", password: "azerty", email: "toto@gmail.com")
+user1 = User.new(first_name: "Jack", last_name: "Sparrow", password: "azerty", email: "test@gmail.com", address: "5 B Rue du Président Édouard Herriot, Lyon")
+user2 = User.new(first_name: "Elizabeth", last_name: "Swan", password: "azerty", email: "toto@gmail.com", address: "101 Rue Montesquieu, Lyon")
+user3 = User.new(first_name: "William", last_name: "Turner", password: "azerty", email: "tata@gmail.com", address: "1 Avenue du Général de Gaulle, Lyon")
+user4 = User.new(first_name: "Hector", last_name: "Barbossa", password: "azerty", email: "tutu@gmail.com", address: "21 Rue des Alouettes, Lyon")
+user5 = User.new(first_name: "James", last_name: "Norington", password: "azerty", email: "titi@gmail.com", address: "113 Bd Yves Farge, Lyon")
+user6 = User.new(first_name: "Davy", last_name: "Jones", password: "azerty", email: "tete@gmail.com", address: "53 Rue des Bienvenus, Lyon")
 
 file1 = URI.open("https://cdn.beebs.app/19180292-b886-40a4-9369-13557aef845f.jpg")
 puts "image fonctionne"
@@ -40,11 +44,11 @@ puts "image fonctionne"
 
 Costume.destroy_all
 
-costume1 = Costume.new(name: 'Spider Man Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 3, owner: user1, age: "Kids", gender: "Unisex", description: "Dynamic Spider-Man suit: iconic red and blue, webbed design, muscle definition. Perfect for parties, events, and superhero fun.")
+costume1 = Costume.new(name: 'Spider Man Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 3, owner: user3, age: "Kids", gender: "Unisex", description: "Dynamic Spider-Man suit: iconic red and blue, webbed design, muscle definition. Perfect for parties, events, and superhero fun.")
 costume1.photo.attach(io: file1, filename: "spider-man.png", content_type: "image/jpg")
 costume1.save
 
-costume2 = Costume.new(name: 'Cinderella Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 1, owner: user1, age: "Kids", gender: "Women", description: "Elegant Cinderella gown: enchanting blue, delicate details, flowing skirt. Ideal for events, parties, and magical moments.")
+costume2 = Costume.new(name: 'Cinderella Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 1, owner: user3, age: "Kids", gender: "Women", description: "Elegant Cinderella gown: enchanting blue, delicate details, flowing skirt. Ideal for events, parties, and magical moments.")
 costume2.photo.attach(io: file2, filename: "cinderella.png", content_type: "image/jpg")
 costume2.save
 
@@ -56,11 +60,11 @@ costume4 = Costume.new(name: 'Batman Costume', size: Costume::SIZE.sample, condi
 costume4.photo.attach(io: file4, filename: "batman.png", content_type: "image/jpg")
 costume4.save
 
-costume5 = Costume.new(name: 'Doctor Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 4, owner: user1, age: "Kids", gender: "Unisex", description: "Classic doctor ensemble: white coat, stethoscope, scrubs. Perfect for parties, events, and roleplay.")
+costume5 = Costume.new(name: 'Doctor Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 4, owner: user4, age: "Kids", gender: "Unisex", description: "Classic doctor ensemble: white coat, stethoscope, scrubs. Perfect for parties, events, and roleplay.")
 costume5.photo.attach(io: file5, filename: "doctor.png", content_type: "image/jpg")
 costume5.save
 
-costume6 = Costume.new(name: 'Mermaid Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 2, owner: user2, age: "Adults", gender: "Women", description: "Enchanting mermaid attire: iridescent scales, flowing tail, seashell accents. Ideal for events, parties, and fantasy themes.")
+costume6 = Costume.new(name: 'Mermaid Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 2, owner: user5, age: "Adults", gender: "Women", description: "Enchanting mermaid attire: iridescent scales, flowing tail, seashell accents. Ideal for events, parties, and fantasy themes.")
 costume6.photo.attach(io: file6, filename: "mermaid.png", content_type: "image/jpg")
 costume6.save
 
@@ -76,15 +80,15 @@ costume9 = Costume.new(name: 'Thor Costume', size: Costume::SIZE.sample, conditi
 costume9.photo.attach(io: file9, filename: "thor.png", content_type: "image/jpg")
 costume9.save
 
-costume10 = Costume.new(name: 'Ghost Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 4, owner: user2, age: "Adults", gender: "Unisex", description: "Ethereal ghost attire: flowing white gown, pale makeup, haunting aura. Ideal for spooky events, parties, and ghostly themes.")
+costume10 = Costume.new(name: 'Ghost Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 4, owner: user5, age: "Adults", gender: "Unisex", description: "Ethereal ghost attire: flowing white gown, pale makeup, haunting aura. Ideal for spooky events, parties, and ghostly themes.")
 costume10.photo.attach(io: file10, filename: "ghost.png", content_type: "image/jpg")
 costume10.save
 
-costume11 = Costume.new(name: 'Moana Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 5, owner: user2, age: "Adults", gender: "Women", description: "Adventure-ready Moana costume: tropical dress, necklace, adventurous spirit. Perfect for events, parties, and Disney-themed fun.")
+costume11 = Costume.new(name: 'Moana Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 5, owner: user6, age: "Adults", gender: "Women", description: "Adventure-ready Moana costume: tropical dress, necklace, adventurous spirit. Perfect for events, parties, and Disney-themed fun.")
 costume11.photo.attach(io: file11, filename: "moana.png", content_type: "image/jpg")
 costume11.save
 
-costume12 = Costume.new(name: 'Skull king Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 7, owner: user2, age: "Adults", gender: "Unisex", description: "Regal Skull King costume: ornate crown, dark robes, skeletal accents. Ideal for themed events, parties, and dramatic flair.")
+costume12 = Costume.new(name: 'Skull king Costume', size: Costume::SIZE.sample, condition: Costume::CONDITION.sample, price: 7, owner: user6, age: "Adults", gender: "Unisex", description: "Regal Skull King costume: ornate crown, dark robes, skeletal accents. Ideal for themed events, parties, and dramatic flair.")
 costume12.photo.attach(io: file12, filename: "skull_king.png", content_type: "image/jpg")
 costume12.save
 

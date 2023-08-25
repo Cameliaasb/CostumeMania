@@ -1,6 +1,5 @@
 <div class="container-home">
-  <div class="cards">
-
+  <div class="cards-costume">
     <% @costumes.each do |costume| %>
       <% if current_user == costume.owner %>
         <%= link_to costume_path(costume) , class:"text-decoration-none text-dark" do %>

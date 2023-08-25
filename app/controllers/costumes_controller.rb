@@ -10,6 +10,15 @@ class CostumesController < ApplicationController
     else
       @costumes = Costume.all
     end
+    users = User.geocoded
+    @markers = users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window_html: render_to_string(partial: "users/info_window", locals: { user: user }),
+        marker_html: render_to_string(partial: "users/marker", locals: { user: user })
+      }
+    end
   end
 
   def show
