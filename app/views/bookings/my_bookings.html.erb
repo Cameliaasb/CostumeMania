@@ -1,6 +1,6 @@
 <div class="container-home">
   <div class="d-flex flex-column gap-3">
-    <% @bookings.each do |booking| %>
+    <% @bookings.each_with_index do |booking, index| %>
     <div class="card-product">
       <%= link_to costume_path(booking.costume) , class:"text-decoration-none text-dark" do %>
         <%= cl_image_tag booking.costume.photo.key, crop: :fill %>
@@ -27,15 +27,11 @@
             <% end %>
           </div>
         </div>
-      
-        <%= render "reviews/form",
-                   costume: booking.costume,
-                   review: Review.new %>
-        </div>
         <% end %>
-
     </div>
+            <%= render "reviews/form",
+                      costume: booking.costume,
+                      review: Review.new %>
   <% end %>
   </div>
 </div>
-<%= console %>
