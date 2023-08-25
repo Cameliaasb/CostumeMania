@@ -13,19 +13,20 @@
     </div>
 
     <% if current_user != @costume.owner %>
-      <div class="form-blank">
-          <%= simple_form_for [@costume, @booking] do |f| %>
-            <%= f.input :start_date,
-                    label: "From",
-                    as: :string,
-                    input_html: { data: { controller: "datepicker" }} %>
-            <%= f.input :end_date,
-                    label: "To",
-                    as: :string,
-                    input_html: { data: { controller: "datepicker" } } %>
-            <%= f.button :submit, class:"btn-submit", value:"Book this costume" %>
-          <% end %>
-        </div>
+
+    <div class="form-blank">
+      <%= simple_form_for [@costume, @booking] do |f| %>
+        <%= f.input :start_date,
+                label: "From",
+                as: :string,
+                input_html: { data: { controller: "datepicker" }} %>
+        <%= f.input :end_date,
+                label: "To",
+                as: :string,
+                input_html: { data: { controller: "datepicker" } } %>
+        <%= f.button :submit, class:"bouton", value:"Book this costume" %>
+      <% end %>
+    </div>
 
     <% else %>
       <div class="bouton-edit-delete">
@@ -38,5 +39,16 @@
           %>
       </div>
     <% end %>
+
+    <div>
+    <% @costume.reviews.each do |review| %>
+    <ul>
+    <li>
+    <%= review.content %>
+    <%= review.rating %>
+    </li>
+    </ul>
+    <% end %>
+    </div>
   </div>
 </div>

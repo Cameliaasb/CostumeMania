@@ -27,8 +27,15 @@
             <% end %>
           </div>
         </div>
+      
+        <%= render "reviews/form",
+                   costume: booking.costume,
+                   review: Review.new %>
+        </div>
         <% end %>
+
     </div>
   <% end %>
   </div>
 </div>
+<%= console %>

@@ -18,6 +18,9 @@
   }
   .bouton:hover {
     background-color: #ACB1D6;
+    transform: translate(0px,24px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 1px solid;
   }
   .bouton-edit-delete {
     display: flex;
