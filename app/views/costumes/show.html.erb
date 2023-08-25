@@ -41,14 +41,18 @@
     <% end %>
 
     <div>
-    <% @costume.reviews.each do |review| %>
+    <% if @costume.reviews.count > 0 %>
+    <h3>Reviews</h3>
     <ul>
+    <% @costume.reviews.each do |review| %>
     <li>
-    <%= review.content %>
-    <%= review.rating %>
+    <p> <%= review.content %> (<%= review.rating %>/5)</p>
     </li>
-    </ul>
     <% end %>
+    <% else %>
+    <p>No reviews Yet</p>
+    <% end %>
+    </ul>
     </div>
   </div>
 </div>

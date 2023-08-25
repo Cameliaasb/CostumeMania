@@ -11,6 +11,14 @@
               <div>
                 <h2><%= costume.name %></h2>
                 <p>Size: <%= costume.size %></p>
+                <% if costume.reviews.count > 0 %>
+                <p>Rating :
+                <%= (costume.reviews.except{|r| r.rating.nil?}.sum(&:rating) / costume.reviews.except{|r| r.rating.nil?}.count.to_f ).round(1)%>
+                / 5
+                </p>
+                <% else %>
+                  <p>No reviews yet</p>
+                <% end %>
               </div>
               <h2 class="card-trip-pricing"> <%= costume.price %>€/day</h2>
             </div>
