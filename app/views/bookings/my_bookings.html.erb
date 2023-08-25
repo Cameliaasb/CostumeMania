@@ -13,8 +13,13 @@
           <%= link_to "Delete Booking", costume_booking_path(booking.costume, booking), class: "bouton" ,data: {turbo_method: :delete, turbo_confirm: "Delete this Booking?"}%>
           <%= link_to "Edit Booking", edit_costume_booking_path(booking.costume, booking), class:"bouton"%>
         </div>
+
+        <%= render "reviews/form",
+                   costume: booking.costume,
+                   review: Review.new %>
       </div>
     </div>
   <% end %>
   </div>
 </div>
+<%= console %>

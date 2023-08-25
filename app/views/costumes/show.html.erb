@@ -22,7 +22,7 @@
                 label: "To",
                 as: :string,
                 input_html: { data: { controller: "datepicker" } } %>
-        <%= f.button :submit, class:"btn-submit", value:"Book this costume" %>
+        <%= f.button :submit, class:"bouton", value:"Book this costume" %>
       <% end %>
     </div>
 
@@ -37,5 +37,16 @@
         %>
         </div>
     <% end %>
+
+    <div>
+    <% @costume.reviews.each do |review| %>
+    <ul>
+    <li>
+    <%= review.content %>
+    <%= review.rating %>
+    </li>
+    </ul>
+    <% end %>
+    </div>
   </div>
 </div>
