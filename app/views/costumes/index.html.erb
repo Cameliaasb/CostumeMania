@@ -12,7 +12,7 @@
                 <h2><%= costume.name %></h2>
                 <p>Size: <%= costume.size %></p>
                 <% if costume.reviews.count > 0 %>
-                <p>Rating :
+                <p>Rating HOOP :
                 <%= (costume.reviews.except{|r| r.rating.nil?}.sum(&:rating) / costume.reviews.except{|r| r.rating.nil?}.count.to_f ).round(1)%>
                 / 5
                 </p>
