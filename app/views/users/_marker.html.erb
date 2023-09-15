@@ -1,9 +1,0 @@
-<%= image_tag "favicon.png", height: 30, width: 30, alt: "Logo" %>
-<% if user == current_user %>
-<div class="badge rounded-pill bg-danger fs-6">
-  <%= "Me" %>
-<%else%>
-<div class="badge rounded-pill bg-primary fs-6">
-  <%= user.first_name %>
-<% end %>
-</div>

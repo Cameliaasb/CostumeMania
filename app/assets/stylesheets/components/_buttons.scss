@@ -1,4 +1,4 @@
-.bouton {
+.button {
     text-decoration: none;
     background-color: #0D1282;
     border-radius: 16px;
@@ -16,13 +16,13 @@
     margin: 5px;
     font-family: 'Oxygen', sans-serif;
   }
-  .bouton:hover {
+  .button:hover {
     background-color: #ACB1D6;
     transform: translate(0px,24px);
     -webkit-transform: translate(0px,5px);
     border-bottom: 1px solid;
   }
-  .bouton-edit-delete {
+  .button-edit-delete {
     display: flex;
     justify-content: center;
 }

@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
   def my_bookings
-    @bookings = Booking.all
-    # a rectifier par la suite : seule façon d'avoir les bookings reçus et envoyés pour la démo
+    @bookings = Booking.all.select do |booking|
+      booking.costume.owner == current_user || booking.user_id == current_user.id
+    end
   end
 
   def new

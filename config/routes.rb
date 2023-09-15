@@ -8,10 +8,12 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[create]
   end
 
+  # costumes controller
   get '/my_costumes', to: 'costumes#my_costumes'
-  get '/my_bookings', to: 'bookings#my_bookings' 
   get '/wordsearch', to: 'costumes#search'
-  resources :users, only: %i[index]
+
+  # bookings controller
+  get '/my_bookings', to: 'bookings#my_bookings'
   get '/costumes/:costume_id/bookings/:id/accept', to: 'bookings#accept', as: "accept"
 
 end

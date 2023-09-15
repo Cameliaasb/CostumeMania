@@ -1,34 +1,55 @@
 <%= render "common/banner" %>
 
-<div class="container-home">
-  <div class="cards">
+<div class="main-container">
 
+
+  <h2 class="border-bottom" >Shop by category </h2>
+  <div class="categories">
+    <div
+    class="category"
+    style="background-image: url(<%= asset_path 'category-kids.jpeg' %>) ;"
+    >
+      <strong> Kids</strong>
+    </div>
+    <div
+    class="category"
+    style="background-image: url(<%= asset_path 'category-women.jpeg' %>) ;"
+    >
+      <strong> Women</strong>
+    </div>
+    <div
+    class="category"
+    style="background-image: url(<%= asset_path 'category-men.jpeg' %>) ;"
+    >
+      <strong> Men</strong>
+    </div>
+  </div>
+
+
+<%# Browse all costumes %>
+  <h2 class="border-bottom" > Shop all</h2>
+  <div class="cards">
     <% @costumes.each do |costume| %>
-      <% if current_user != costume.owner %>
-        <%= link_to costume_path(costume) , class:"card-trip text-decoration-none text-dark" do %>
-            <%= cl_image_tag costume.photo.key, height: 700, width: 500, crop: :fill %>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= costume.name %></h2>
-                <p>Size: <%= costume.size %></p>
-                <% if costume.reviews.count > 0 %>
-                <p>Rating HOOP :
-                <%= (costume.reviews.except{|r| r.rating.nil?}.sum(&:rating) / costume.reviews.except{|r| r.rating.nil?}.count.to_f ).round(1)%>
-                / 5
-                </p>
-                <% else %>
-                  <p>No reviews yet</p>
-                <% end %>
-              </div>
-              <h2 class="card-trip-pricing"> <%= costume.price %>€/day</h2>
-            </div>
-        <% end %>
+      <%= link_to costume_path(costume) , class:"costume-card text-decoration-none text-dark" do %>
+        <%= cl_image_tag costume.photo.key, height: 700, width: 500, crop: :fill %>
+        <div class="costume-card-infos">
+          <div>
+            <h3><%= costume.name %></h3>
+            <p>Size: <%= costume.size %></p>
+            <% if costume.reviews.count > 0 %>
+              <p>Rating :<%=
+                (costume.reviews.except{|r| r.rating.nil?}.sum(&:rating) / costume.reviews.except{|r| r.rating.nil?}.count.to_f ).round(1)
+                %>/ 5
+              </p>
+            <% else %>
+              <p>No reviews yet</p>
+            <% end %>
+          </div>
+        <h3> <%= costume.price %>€/day</h3>
+        </div>
       <% end %>
     <% end %>
   </div>
-  <div class="map-box"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+
+
 </div>

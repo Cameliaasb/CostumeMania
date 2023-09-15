@@ -11,10 +11,10 @@ class Costume < ApplicationRecord
   algoliasearch do
     attributes :name, :description
   end
-  
+
   SIZE = ["XS", "S", "M", "L", "XL"]
   GENDER = ["Men", "Women", "Unisex"]
-  AGE = ["Adults", "Kids"]
+  CATEGORY = ["Adults", "Kids"]
   CONDITION = ["New", "Average", "Used"]
 
 end

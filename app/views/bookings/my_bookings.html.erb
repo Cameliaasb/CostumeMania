@@ -1,4 +1,4 @@
-<div class="container-home">
+<div class="main-container">
   <div class="d-flex flex-column gap-3">
     <% @bookings.each_with_index do |booking, index| %>
     <div class="card-product">
@@ -19,11 +19,11 @@
           <p>Gender : <%= booking.costume.gender %></p>
           <p>Start date : <%= booking.start_date %> - End date : <%= booking.end_date %></p>
           <div class="card-product-btn">
-            <%= link_to "Cancel Booking", costume_booking_path(booking.costume, booking), class: "bouton" ,data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"}%>
+            <%= link_to "Cancel Booking", costume_booking_path(booking.costume, booking), class: "button" ,data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"}%>
             <% if booking.costume.owner == current_user && booking.status != "Accepted" %>
-              <%= link_to "Accept", accept_path(booking.costume, booking), class:"bouton" %>
+              <%= link_to "Accept", accept_path(booking.costume, booking), class:"button" %>
             <% elsif booking.client == current_user %>
-              <%= link_to "Edit Booking", edit_costume_booking_path(booking.costume, booking), class:"bouton" %>
+              <%= link_to "Edit Booking", edit_costume_booking_path(booking.costume, booking), class:"button" %>
             <% end %>
           </div>
         </div>
@@ -31,9 +31,10 @@
             <%= render "reviews/form",
                       costume: booking.costume,
                       review: Review.new %>
-          <%end %>
+          <% end %>
         <% end %>
     </div>
   <% end %>
   </div>
+
 </div>
