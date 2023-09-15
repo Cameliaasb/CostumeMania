@@ -1,0 +1,87 @@
+// grid to show many items
+.cards {
+  display: grid;
+  margin: 16px 0;
+  justify-content: space-between;
+  justify-items: center;
+  row-gap: 24px;
+}
+
+// Product card
+.costume-card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 280px;
+  border-radius: 8px;
+
+
+  img {
+   height: 80%;
+   width: 100%;
+   object-fit: cover;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    margin: 0;
+  }
+}
+
+
+// ??
+.costume-card-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+
+
+.cards-costume{
+  display: grid;
+  grid-gap: 70px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 10px;
+  width: 200px;
+  flex-grow: 1;
+}
+
+
+
+// Small devices
+@media (min-width: 100px) and (max-width: 767px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr ;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr ;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+  }
+}

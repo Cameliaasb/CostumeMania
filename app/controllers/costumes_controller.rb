@@ -7,18 +7,9 @@ class CostumesController < ApplicationController
   def index
     if params[:query] && !params[:query].empty?
       Costume.algolia_reindex!
-      @costumes = Costume.algolia_search(params[:query])
+      @costumes = Costume.algolia_search(params[:query]).reject { |costume| costume.owner == current_user }
     else
-      @costumes = Costume.all
-    end
-    users = User.geocoded
-    @markers = users.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        info_window_html: render_to_string(partial: "users/info_window", locals: { user: user }),
-        marker_html: render_to_string(partial: "users/marker", locals: { user: user })
-      }
+      @costumes = Costume.all.reject { |costume| costume.owner == current_user }
     end
   end
 

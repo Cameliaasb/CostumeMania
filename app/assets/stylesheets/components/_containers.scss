@@ -1,3 +1,8 @@
+body {
+  background-color: $beige;
+}
+
+
 .container-authentication {
   padding: 20px;
   background-color: #F6F4EB;
@@ -5,7 +10,16 @@
   flex-grow: 1;
 }
 
-body {
+.main-container {
+  padding: 4% 8%;
+  background-color: $beige;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.border-bottom {
+  border-bottom: black 1px;
+  padding-bottom: 16px;
 }

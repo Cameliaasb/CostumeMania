@@ -24,17 +24,17 @@
                 label: "To",
                 as: :string,
                 input_html: { data: { controller: "datepicker" } } %>
-        <%= f.button :submit, class:"bouton", value:"Book this costume" %>
+        <%= f.button :submit, class:"button", value:"Book this costume" %>
       <% end %>
     </div>
 
     <% else %>
-      <div class="bouton-edit-delete">
-        <%= link_to "Edit", edit_costume_path(@costume), class:"bouton" %>
+      <div class="button-edit-delete">
+        <%= link_to "Edit", edit_costume_path(@costume), class:"button" %>
         <br>
 
         <%= link_to "Delete",
-            costume_path(@costume), class:"bouton",
+            costume_path(@costume), class:"button",
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
           %>
       </div>
