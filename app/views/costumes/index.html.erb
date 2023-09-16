@@ -2,6 +2,23 @@
 
 <div class="main-container">
 
+<form
+  data-controller="search"  data-search-costumes-value="<%= @costumes.map(&:id) %>"
+  novalidate="novalidate"
+  class="simple_form search" action="/" accept-charset="UTF-8" method="get"  >
+  <div class="search-form-control form-group" >
+    <input
+      data-search-target="searchBar"
+      class="form-control string required"
+      type="text" name="query" id="search_query"
+      placeholder="Search" value="<%= params[:query] %>"
+    />
+
+    <button type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</form>
 
   <h2 class="border-bottom" >Shop by category </h2>
   <div class="categories">
@@ -24,7 +41,7 @@
       <strong> Men</strong>
     </div>
   </div>
-
+<%= console %>
 
 <%# Browse all costumes %>
   <h2 class="border-bottom" > Shop all</h2>
