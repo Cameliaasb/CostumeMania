@@ -8,10 +8,9 @@ class Costume < ApplicationRecord
 
   validates :size, :condition, :price, :name, :gender, :age, :description, presence: true
 
+  # Algolia only for keyword search
   algoliasearch do
-    attributes %i[name description gender price]
-    searchableAttributes %i[name description]
-    attributesForFaceting %i[gender price]
+    attributes %i[name description]
   end
 
   SIZE = ["XS", "S", "M", "L", "XL"]
