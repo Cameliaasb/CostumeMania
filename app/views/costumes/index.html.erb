@@ -14,6 +14,10 @@
       placeholder="Search" value="<%= params[:query] %>"
     />
 
+  <div class="">
+    <%= filter("gender", "Men", "Men") %>
+  </div>
+
     <button type="submit" class="btn btn-flat">
       <i class="fas fa-search"></i>
     </button>
@@ -28,18 +32,16 @@
     >
       <strong> Kids</strong>
     </div>
-    <div
-    class="category"
-    style="background-image: url(<%= asset_path 'category-women.jpeg' %>) ;"
-    >
-      <strong> Women</strong>
-    </div>
-    <div
-    class="category"
-    style="background-image: url(<%= asset_path 'category-men.jpeg' %>) ;"
-    >
+
+    <%= link_to "/?gender=Men", html_options = { class:"category", style: "background-image: url(/assets/category-men-d9f83a5d8904fccd1855d77380c1a14c02adf4852e79fa1ada9599c217dfdc13.jpg)"}  do %>
       <strong> Men</strong>
-    </div>
+    <% end %>
+
+
+    <%= link_to "/?gender=Women", html_options = { class:"category", style:"background-image: url(/assets/category-women-24a8cbddd9e80c54c0e954e41760ff6cb0096fd4c21b0a5a9f7406c7aa3be482.jpg)"}  do %>
+        <strong> Women</strong>
+    <% end %>
+
   </div>
 <%= console %>
 

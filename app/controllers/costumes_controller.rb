@@ -5,11 +5,17 @@ class CostumesController < ApplicationController
   before_action :set_costume, only: %i[edit update destroy]
 
   def index
+    @costumes = Costume.all.reject { |costume| costume.owner == current_user }
+
+    if params[:gender].present?
+      puts params[:gender]
+      @costumes = Costume.where(gender: "#{params[:gender]}").or(Costume.where(gender: "Unisex")).reject { |costume| costume.owner == current_user }
+      p @costumes.count
+    end
+
     if params[:query] && !params[:query].empty?
-      Costume.algolia_reindex!
-      @costumes = Costume.algolia_search(params[:query]).reject { |costume| costume.owner == current_user }
-    else
-      @costumes = Costume.all.reject { |costume| costume.owner == current_user }
+      Costume.reindex!
+      @costumes = Costume.search(params[:query], { facets: 'gender' }).reject { |costume| costume.owner == current_user }
     end
   end
 

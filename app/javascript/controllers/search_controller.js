@@ -13,9 +13,10 @@ export default class extends Controller {
     console.log(this.costumesValue)
     const client = algoliasearch("8CJLJYFBQ9", "257b6fbd04d7474b1aa1cb321ff286c3");
     const index = client.initIndex('Costume');
-    const search = index.search(this.searchBarTarget.value)
+    const search = index.search(this.searchBarTarget.value, {facets: '*'})
       .then(function searchDone(content) {
-        console.log(content.hits)
+        console.log(content.facets['gender'])
+
       })
       .catch(function searchFailure(err) {
         console.error("err");
