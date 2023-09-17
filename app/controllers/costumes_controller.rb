@@ -5,16 +5,12 @@ class CostumesController < ApplicationController
   before_action :set_costume, only: %i[edit update destroy]
 
   def index
-    @costumes = Costume.all.reject { |costume| costume.owner == current_user }
-
+    @costumes = Costume.where.not(owner: current_user)
+    @costumes = @costumes.where(age: params[:age]) if params[:age].present?
     if params[:gender].present?
-      @costumes = Costume.where(gender: "#{params[:gender]}").or(Costume.where(gender: "Unisex")).reject { |costume| costume.owner == current_user }
+      @costumes = @costumes.where(gender: params[:gender]).or(@costumes.where(gender: "Unisex"))
     end
-
-    if params[:query].present?
-      Costume.reindex!
-      @costumes = Costume.search(params[:query], { facets: 'gender' }).reject { |costume| costume.owner == current_user }
-    end
+    @costumes = @costumes.search(params[:query]) if params[:query].present?
   end
 
   def show

@@ -1,0 +1,19 @@
+<form
+  data-controller="search"
+  novalidate="novalidate"
+  class="simple_form search" action="/" accept-charset="UTF-8" method="get"  >
+  <div class="search-form-control form-group" >
+      <input
+        class="form-control string required"
+        type="text" name="keyword"
+        placeholder="Search" value="<%= params[:keyword] %>"
+        data-search-target="query" data-action="keyup->search#keyword"
+      />
+
+
+      <button type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i>
+      </button>
+
+    </div>
+</form>
