@@ -8,12 +8,10 @@ class CostumesController < ApplicationController
     @costumes = Costume.all.reject { |costume| costume.owner == current_user }
 
     if params[:gender].present?
-      puts params[:gender]
       @costumes = Costume.where(gender: "#{params[:gender]}").or(Costume.where(gender: "Unisex")).reject { |costume| costume.owner == current_user }
-      p @costumes.count
     end
 
-    if params[:query] && !params[:query].empty?
+    if params[:query].present?
       Costume.reindex!
       @costumes = Costume.search(params[:query], { facets: 'gender' }).reject { |costume| costume.owner == current_user }
     end
