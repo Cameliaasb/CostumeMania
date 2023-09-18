@@ -29,6 +29,10 @@ export default class extends Controller {
     return `${(this.womenTarget.checked ? (this.menTarget.checked ? "" : "Women") : (this.menTarget.checked ? "Men" : ""))}`
   }
 
+  price () {
+
+  }
+
   reload() {
     // stimulus doc : working with external resources
     const baseUrl = `${window.location.href}`
