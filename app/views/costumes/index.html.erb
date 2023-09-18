@@ -1,20 +1,39 @@
 
 <div class="main-container">
 
+<form
+  data-controller="search"
+  novalidate="novalidate"
+  class="simple_form search" action="/" accept-charset="UTF-8" method="get"  >
+  <div class="search-form-control form-group" >
+      <input
+        class="form-control string required"
+        type="text" name="keyword"
+        placeholder="Search" value="<%= params[:keyword] %>"
+        data-search-target="query" data-action="keyup->search#keyword"
+      />
+
+
+      <button type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i>
+      </button>
+
+    </div>
+</form>
 
 
   <h2 class="border-bottom" >Shop by category </h2>
-  <div class="categories">
-    <%= link_to request.params.merge(age: "Kids", gender:"*"), html_options = { class:"category", style:"background-image: url(#{asset_path 'category-kids.jpeg'} )"}  do %>
+  <div class="three-centered-blocks">
+    <%= link_to request.params.merge(age: "Kids", gender:"*"), html_options = { class:"img-block", style:"background-image: url(#{asset_path 'category-kids.jpeg'} )"}  do %>
         <strong> Kids</strong>
     <% end %>
 
-    <%= link_to request.params.merge(age: "Adults", gender: "Men"), html_options = { class:"category", style: "background-image: url(#{asset_path 'category-men.jpeg'} )"}  do %>
+    <%= link_to request.params.merge(age: "Adults", gender: "Men"), html_options = { class:"img-block", style: "background-image: url(#{asset_path 'category-men.jpeg'} )"}  do %>
       <strong> Men</strong>
     <% end %>
 
 
-    <%= link_to request.params.merge(age: "Adults", gender: "Women"), html_options = { class:"category", style:"background-image: url(#{asset_path 'category-women.jpeg'} )"}  do %>
+    <%= link_to request.params.merge(age: "Adults", gender: "Women"), html_options = { class:"img-block", style:"background-image: url(#{asset_path 'category-women.jpeg'} )"}  do %>
         <strong> Women</strong>
     <% end %>
 

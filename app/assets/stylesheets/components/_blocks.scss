@@ -1,14 +1,14 @@
-.categories {
+.three-centered-blocks {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr ;
-  margin: 32px 0;
+  // margin: 32px 0;
   justify-content: space-between;
   justify-items: center;
   text-align: center;
 
 }
 
-.category {
+.img-block {
   background-size: cover;
   border-radius: 8px;
   background-position: center;
