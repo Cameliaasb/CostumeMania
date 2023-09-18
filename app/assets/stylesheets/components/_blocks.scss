@@ -23,7 +23,10 @@
 }
 
 .filter-block {
-  min-width: 250px;
-  max-width: 300px;
   padding: 4% 2%;
+
+  .full-width {
+    width: 150px;
+  }
+
 }

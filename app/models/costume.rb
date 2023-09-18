@@ -13,7 +13,7 @@ class Costume < ApplicationRecord
     attributes %i[name description]
   end
 
-  SIZE = ["XS", "S", "M", "L", "XL"]
+  SIZE = ["XS", "S", "M", "L", "XL", "XXL"]
   GENDER = ["Men", "Women", "Unisex"]
   CATEGORY = ["Adults", "Kids"]
   CONDITION = ["New", "Average", "Used"]
