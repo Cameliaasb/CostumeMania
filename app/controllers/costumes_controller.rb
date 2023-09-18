@@ -6,13 +6,13 @@ class CostumesController < ApplicationController
 
   def index
     @costumes = Costume.where.not(owner: current_user)
-    if params[:size].present?
-      @costumes = @costumes.select { |costume| params[:size].scan(/\w+/).include?(costume.size) }
-    end
     if params[:gender].present?
       @costumes = @costumes.where(gender: params[:gender]).or(@costumes.where(gender: "Unisex"))
     end
     @costumes = @costumes.search(params[:keyword]) if params[:keyword].present?
+    if params[:size].present?
+      @costumes = @costumes.select { |costume| params[:size].scan(/\w+/).include?(costume.size) }
+    end
   end
 
   def show
