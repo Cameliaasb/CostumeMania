@@ -1,0 +1,15 @@
+<form
+  data-search-target="form"
+  novalidate="novalidate"
+  class="" action="/costumes/" accept-charset="UTF-8" method="get"  >
+
+  <div class="search-form-control form-group" >
+      <input
+        class="form-control string required"
+        type="text" name="keyword"
+        placeholder="Search" value="<%= params[:keyword] %>"
+        data-search-target="keyword" data-action="keyup->search#keyword"
+      />
+
+  </div>
+</form>

@@ -1,0 +1,14 @@
+<h2 class="border-bottom" >Shop by category </h2>
+<div class="three-centered-blocks">
+  <%= link_to request.params.merge(age: "Kids", gender:"*"), html_options = { class:"img-block", style:"background-image: url(#{asset_path 'category-kids.jpeg'} )"}  do %>
+      <strong> Kids</strong>
+  <% end %>
+
+  <%= link_to request.params.merge(age: "Adults", gender: "Men"), html_options = { class:"img-block", style: "background-image: url(#{asset_path 'category-men.jpeg'} )"}  do %>
+    <strong> Men</strong>
+  <% end %>
+
+  <%= link_to request.params.merge(age: "Adults", gender: "Women"), html_options = { class:"img-block", style:"background-image: url(#{asset_path 'category-women.jpeg'} )"}  do %>
+    <strong> Women</strong>
+  <% end %>
+</div>

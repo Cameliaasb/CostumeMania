@@ -10,7 +10,7 @@ class CostumesController < ApplicationController
     if params[:gender].present?
       @costumes = @costumes.where(gender: params[:gender]).or(@costumes.where(gender: "Unisex"))
     end
-    @costumes = @costumes.search(params[:query]) if params[:query].present?
+    @costumes = @costumes.search(params[:keyword]) if params[:keyword].present?
   end
 
   def show

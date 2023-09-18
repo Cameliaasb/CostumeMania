@@ -1,6 +1,7 @@
 // grid to show many items
 .cards {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   margin: 16px 0;
   justify-content: space-between;
   justify-items: center;
@@ -36,52 +37,52 @@
 
 
 // ??
-.costume-card-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
+// .costume-card-infos {
+//   padding: 16px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-end;
+// }
 
 
 
-.cards-costume{
-  display: grid;
-  grid-gap: 70px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-left: 50px;
-  padding-right: 10px;
-  width: 200px;
-  flex-grow: 1;
-}
+// .cards-costume{
+//   display: grid;
+//   grid-gap: 70px;
+//   margin-top: 20px;
+//   margin-bottom: 20px;
+//   padding-left: 50px;
+//   padding-right: 10px;
+//   width: 200px;
+//   flex-grow: 1;
+// }
 
 
 
-// Small devices
-@media (min-width: 100px) and (max-width: 767px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
+// // Small devices
+// @media (min-width: 100px) and (max-width: 767px) {
+//   .cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr ;
-  }
-}
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+//   .cards {
+//     grid-template-columns: 1fr 1fr ;
+//   }
+// }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr ;
-  }
-}
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   .cards {
+//     grid-template-columns: 1fr 1fr ;
+//   }
+// }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
-  }
-}
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//   .cards {
+//     grid-template-columns: 1fr 1fr 1fr ;
+//   }
+// }
