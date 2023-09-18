@@ -2,10 +2,8 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  margin: 16px 0;
-  justify-content: space-between;
   justify-items: center;
-  row-gap: 24px;
+  gap: 24px;
 }
 
 // Product card

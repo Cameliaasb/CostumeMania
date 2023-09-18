@@ -1,15 +1,72 @@
 <form
   data-search-target="form"
   novalidate="novalidate"
-  class="" action="/costumes/" accept-charset="UTF-8" method="get"  >
+  action="/costumes/" accept-charset="UTF-8" method="get"  >
 
   <div class="search-form-control form-group" >
+      <h3 class="border-bottom"> Filter by</h3>
+
       <input
         class="form-control string required"
         type="text" name="keyword"
-        placeholder="Search" value="<%= params[:keyword] %>"
-        data-search-target="keyword" data-action="keyup->search#keyword"
+        placeholder="Keyword search" value="<%= params[:keyword] %>"
+        data-search-target="keyword" data-action="keyup->search#reload"
       />
+
+    <div class="border-bottom"></div>
+
+    <strong>Category</strong>
+    <div class="checkbox-options">
+      <div>
+        <input type="checkbox" id="women" name="women" value="false"
+              data-action="change->search#reload" data-search-target="women">
+        <label for="women"> Women</label>
+      </div>
+      <div>
+        <input type="checkbox" id="men" name="men" value="false"
+              data-action="change->search#reload" data-search-target="men">
+        <label for="men"> Men</label>
+      </div>
+    </div>
+
+    <div class="border-bottom"></div>
+
+    <strong>Size</strong>
+    <div class="checkbox-options">
+
+      <div>
+        <input type="checkbox" id="XS" name="XS" value="false"
+              data-action="change->search#reload" data-search-target="XS">
+        <label for="XS"> XS</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="S" name="S" value="false"
+              data-action="change->search#reload" data-search-target="S">
+        <label for="S"> S</label>
+      </div>
+      <div>
+        <input type="checkbox" id="M" name="M" value="false"
+              data-action="change->search#reload" data-search-target="M">
+        <label for="M"> M</label>
+      </div>
+      <div>
+        <input type="checkbox" id="L" name="L" value="false"
+              data-action="change->search#reload" data-search-target="L">
+        <label for="L"> L</label>
+      </div>
+      <div>
+        <input type="checkbox" id="XL" name="XL" value="false"
+              data-action="change->search#reload" data-search-target="XL">
+        <label for="XL"> XL</label>
+      </div>
+      <div>
+        <input type="checkbox" id="XXL" name="XXL" value="false"
+              data-action="change->search#reload" data-search-target="XXL">
+        <label for="XXL"> XXL</label>
+      </div>
+
+    </div>
 
   </div>
 </form>
