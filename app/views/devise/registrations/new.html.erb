@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-authentication">
     <h2>Sign up</h2>
 
 
@@ -10,14 +10,16 @@
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email" }%>
-        <%= f.input :first_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "first_name" }%>
-        <%= f.input :last_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "last_name" }%>
+        <div class="multi-input">
+          <%= f.input :first_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "first_name", class:"two-row" }%>
+          <%= f.input :last_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "last_name", class:"two-row"}%>
+        </div>
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -28,7 +30,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit, "Sign up", class:"full-width-button" %>
       </div>
     <% end %>
 

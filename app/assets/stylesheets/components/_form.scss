@@ -9,22 +9,22 @@
 .multi-input {
   display: flex;
   justify-content: space-between;
+
   > .three-row {
-  width: 30%;
+    width: 30%;
   }
 
   > .two-row {
-    width: 45%;
+    width: 45% !important;
   }
-
 }
-
 
 .two-inputs {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .small-input {
   width: 60px;
   height: 40px;
@@ -32,6 +32,5 @@
 }
 
 input:invalid {
-  border: 2px dashed red;
   color: red;
 }
