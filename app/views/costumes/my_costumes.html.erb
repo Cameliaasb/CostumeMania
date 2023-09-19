@@ -1,5 +1,5 @@
 <div class="padding-x-y">
-  <div class="cards-costume">
+  <div class="cards">
     <% @costumes.each do |costume| %>
       <% if current_user == costume.owner %>
         <%= link_to costume_path(costume) , class:"text-decoration-none text-dark" do %>
@@ -9,6 +9,14 @@
               <div>
                 <h3><%= costume.name %></h3>
                 <p>Size: <%= costume.size %></p>
+                <% if costume.reviews.count > 0 %>
+                <p>Rating :<%=
+                  (costume.reviews.except{|r| r.rating.nil?}.sum(&:rating) / costume.reviews.except{|r| r.rating.nil?}.count.to_f ).round(1)
+                  %>/ 5
+                </p>
+              <% else %>
+                <p>No reviews yet</p>
+              <% end %>
               </div>
               <h3> <%= costume.price %>€/day</h3>
             </div>

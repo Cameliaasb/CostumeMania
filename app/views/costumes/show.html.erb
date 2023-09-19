@@ -12,7 +12,11 @@
       <h3> <%= @costume.price %>€ / Day </h3>
 
     </div>
-    <p><%= @costume.description %></p>
+
+    <div>
+      <p><%= @costume.condition == "Perfect" ? "Perfect condition" : @costume.condition %></p>
+      <p><%= @costume.description %></p>
+    </div>
 
     <% if current_user != @costume.owner %>
 
@@ -48,15 +52,13 @@
 
     <div>
     <% if @costume.reviews.count > 0 %>
-    <h3>Reviews</h3>
-    <ul>
-    <% @costume.reviews.each do |review| %>
-    <li>
-    <p> <%= review.content %> (<%= review.rating %>/5)</p>
-    </li>
-    <% end %>
-    <% else %>
-    <p>Be the first to review this costume</p>
+      <h3>Reviews</h3>
+      <ul>
+      <% @costume.reviews.each do |review| %>
+        <li>
+        <p> <%= review.content %> (<%= review.rating %>/5)</p>
+        </li>
+      <% end %>
     <% end %>
     </ul>
     </div>
