@@ -4,8 +4,13 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   static targets = [
-    "div", "keyword", "women", "men", "size"
+    "div", "keyword",
+    "women", "men",
+    "size", "min", "max"
   ]
+
+  static values = {max: Number}
+
 
   connect() {
     // DOMParser doc + stackoverflow (parse data from html response)
@@ -30,13 +35,19 @@ export default class extends Controller {
   }
 
   price () {
+    const min = parseInt(this.minTarget.value)
+    const max = parseInt(this.maxTarget.value)
+    return  `(${(min ? min : 0)}..${(max ? max : this.maxValue)})`
+  }
+
+  condition () {
 
   }
 
   reload() {
     // stimulus doc : working with external resources
     const baseUrl = `${window.location.href}`
-    const url = `${baseUrl}?gender=${this.gender()}&keyword=${this.keyword()}&size=${this.size()}`
+    const url = `${baseUrl}?gender=${this.gender()}&keyword=${this.keyword()}&size=${this.size()}&price=${this.price()}`
     console.log(url)
     fetch(url)
     .then(response => response.text())

@@ -5,12 +5,14 @@
   <div class="search-form-control form-group" >
       <h3 class="border-bottom"> Filter by</h3>
 
-      <input
-        class="form-control string required"
-        type="text" name="keyword"
-        placeholder="Keyword search" value="<%= params[:keyword] %>"
-        data-search-target="keyword" data-action="keyup->search#reload"
-      />
+
+    <strong>Keyword</strong>
+    <input
+      class="form-control string required"
+      type="text" name="keyword"
+      placeholder="Search..." value="<%= params[:keyword] %>"
+      data-search-target="keyword" data-action="keyup->search#reload"
+    />
 
     <div class="border-bottom"></div>
 
@@ -66,6 +68,22 @@
       </div>
 
     </div>
+
+
+    <div class="border-bottom"></div>
+    <p><strong>Price </strong>(€/day)</p>
+      <div class="two-inputs">
+
+        <input class="small-input" type="text" placeholder="min" pattern="^\d*$"
+              data-action="keyup->search#reload" data-search-target="min">
+        <input class="small-input" type="text" placeholder="max" pattern="^\d*$"
+              data-action="keyup->search#reload" data-search-target="max">
+      </div>
+
+    <div class="border-bottom"></div>
+    <strong>Condition</strong>
+
+
 
   </div>
 </form>

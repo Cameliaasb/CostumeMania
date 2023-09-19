@@ -13,6 +13,9 @@ class CostumesController < ApplicationController
     if params[:size].present?
       @costumes = @costumes.select { |costume| params[:size].scan(/\w+/).include?(costume.size) }
     end
+    if params[:price].present?
+      @costumes = @costumes.select { |costume| eval(params[:price]).include?(costume.price) }
+    end
   end
 
   def show

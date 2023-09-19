@@ -18,3 +18,20 @@
   }
 
 }
+
+
+.two-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.small-input {
+  width: 60px;
+  height: 40px;
+  text-align: center;
+}
+
+input:invalid {
+  border: 2px dashed red;
+  color: red;
+}
