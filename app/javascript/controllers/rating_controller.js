@@ -6,22 +6,27 @@ export default class extends Controller {
   static targets = ["rateInput"]
 
   connect() {
+    this.rateInputTargets.forEach(input => console.log(input.value))
   }
 
-  rate1() {
-    console.log("cc");
-    this.rateInputTarget.value = 1
+  rate1(e) {
+    console.log(e.target.form)
+    const input = this.rateInputTargets.filter(input => input.form == e.target.form)
+   console.log(input)
+
   }
-  rate2() {
+
+  rate2(e) {
     this.rateInputTarget.value = 2
+
   }
+
   rate3() {
-    this.rateInputTarget.value = 3
   }
+
   rate4() {
-    this.rateInputTarget.value = 4
   }
+
   rate5() {
-    this.rateInputTarget.value = 5
   }
 }

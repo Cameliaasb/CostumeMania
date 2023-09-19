@@ -13,6 +13,7 @@
         <input type="radio" id="star1" name="rate" value="1" />
         <label for="star1" title="text" data-action="click->rating#rate1">1 star</label>
         <%= f.number_field :rating, data: { rating_target: "rateInput"} %>
+      <%= f.submit "Go"%>
       </div>
   </div>
 <% end %>
