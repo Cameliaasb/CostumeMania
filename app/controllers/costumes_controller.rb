@@ -7,7 +7,7 @@ class CostumesController < ApplicationController
   def index
     @costumes = Costume.where.not(owner: current_user)
     if params[:gender].present?
-      @costumes = @costumes.where(gender: params[:gender]).or(@costumes.where(gender: "Unisex"))
+      @costumes = @costumes.where(gender: params[:gender]).or(@costumes.where(gender: "unisex"))
     end
     @costumes = @costumes.search(params[:keyword]) if params[:keyword].present?
     if params[:size].present?
@@ -58,7 +58,7 @@ class CostumesController < ApplicationController
   private
 
   def costume_params
-    params.require(:costume).permit(:photo, :size, :price, :condition, :name, :min_duration, :age, :gender, :description)
+    params.require(:costume).permit(:photo, :size, :price, :condition, :name, :min_duration, :gender, :description)
   end
 
   def set_costume

@@ -6,7 +6,7 @@ class Costume < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
-  validates :size, :condition, :price, :name, :gender, :age, :description, presence: true
+  validates :size, :condition, :price, :name, :gender, :description, presence: true
 
   # Algolia only for keyword search
   algoliasearch do
@@ -15,7 +15,6 @@ class Costume < ApplicationRecord
 
   SIZE = ["XS", "S", "M", "L", "XL", "XXL"]
   GENDER = ["Men", "Women", "Unisex"]
-  CATEGORY = ["Adults", "Kids"]
   CONDITION = ["New", "Average", "Used"]
 
 end

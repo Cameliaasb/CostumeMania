@@ -13,7 +13,7 @@
           <div class="costume-card-infos">
             <div>
               <h3><%= costume.name %></h3>
-              <p><%= "#{costume.gender}  #{costume.age}" %></p>
+              <p><%= "#{costume.gender}" %></p>
               <p>Size: <%= costume.size %></p>
               <% if costume.reviews.count > 0 %>
                 <p>Rating :<%=
@@ -30,5 +30,4 @@
       <% end %>
     </div>
   </div>
-
 </div>

@@ -26,7 +26,7 @@ export default class extends Controller {
 
   gender() {
     console.log("method: gender")
-    return `${(this.womenTarget.checked ? (this.menTarget.checked ? "" : "Women") : (this.menTarget.checked ? "Men" : ""))}`
+    return `${(this.womenTarget.checked ? (this.menTarget.checked ? "" : "women") : (this.menTarget.checked ? "men" : ""))}`
   }
 
   price () {
