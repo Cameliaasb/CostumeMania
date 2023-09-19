@@ -4,14 +4,11 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   static targets = [
-    "div", "keyword",
-    "women", "men",
-    "size", "min", "max",
-    "perfect", "used"
+    "div", "keyword", "women", "men",
+    "size", "min", "max", "perfect", "used"
   ]
 
   static values = {max: Number}
-
 
   connect() {
     // DOMParser doc + stackoverflow (parse data from html response)
@@ -19,19 +16,16 @@ export default class extends Controller {
   }
 
   size() {
-    console.log("method: size")
     const size = []
     this.sizeTargets.forEach(target => (target.checked) && size.push(target.name) )
     return size
   }
 
   keyword() {
-    console.log("method: keyword")
     return `${this.keywordTarget.value}`
   }
 
   gender() {
-    console.log("method: gender")
     return `${(this.womenTarget.checked ? (this.menTarget.checked ? "" : "women") : (this.menTarget.checked ? "men" : ""))}`
   }
 
@@ -43,21 +37,16 @@ export default class extends Controller {
 
   condition () {
     return `${(this.perfectTarget.checked ? (this.usedTarget.checked ? "" : "Perfect") : (this.usedTarget.checked ? "Used" : ""))}`
-
   }
 
   reload() {
     // stimulus doc : working with external resources
     const baseUrl = `${window.location.href}`
     const url = `${baseUrl}?gender=${this.gender()}&keyword=${this.keyword()}
-                  &size=${this.size()}&price=${this.price()}&condition=${this.condition()}`
-    console.log(url)
+                  &size=${this.size()}&price=${this.price()}
+                  &condition=${this.condition()}`
     fetch(url)
-    .then(response => response.text())
-    .then(html => this.divTarget.innerHTML = this.parser.parseFromString(html, "text/html").getElementById("costumes").innerHTML)
-
+      .then(response => response.text())
+      .then(html => this.divTarget.innerHTML = this.parser.parseFromString(html, "text/html").getElementById("costumes").innerHTML)
   }
-
-
-
 }
