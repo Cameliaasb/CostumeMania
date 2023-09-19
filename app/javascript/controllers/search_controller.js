@@ -6,7 +6,8 @@ export default class extends Controller {
   static targets = [
     "div", "keyword",
     "women", "men",
-    "size", "min", "max"
+    "size", "min", "max",
+    "perfect", "used"
   ]
 
   static values = {max: Number}
@@ -41,13 +42,15 @@ export default class extends Controller {
   }
 
   condition () {
+    return `${(this.perfectTarget.checked ? (this.usedTarget.checked ? "" : "Perfect") : (this.usedTarget.checked ? "Used" : ""))}`
 
   }
 
   reload() {
     // stimulus doc : working with external resources
     const baseUrl = `${window.location.href}`
-    const url = `${baseUrl}?gender=${this.gender()}&keyword=${this.keyword()}&size=${this.size()}&price=${this.price()}`
+    const url = `${baseUrl}?gender=${this.gender()}&keyword=${this.keyword()}
+                  &size=${this.size()}&price=${this.price()}&condition=${this.condition()}`
     console.log(url)
     fetch(url)
     .then(response => response.text())

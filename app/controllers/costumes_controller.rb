@@ -9,11 +9,15 @@ class CostumesController < ApplicationController
     if params[:gender].present?
       @costumes = @costumes.where(gender: params[:gender]).or(@costumes.where(gender: "unisex"))
     end
+    if params[:condition].present?
+      @costumes = @costumes.where(condition: params[:condition])
+    end
     @costumes = @costumes.search(params[:keyword]) if params[:keyword].present?
     if params[:size].present?
       @costumes = @costumes.select { |costume| params[:size].scan(/\w+/).include?(costume.size) }
     end
     if params[:price].present?
+      # fix eval security breach
       @costumes = @costumes.select { |costume| eval(params[:price]).include?(costume.price) }
     end
   end
