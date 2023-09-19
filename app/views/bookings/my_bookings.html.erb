@@ -1,40 +1,20 @@
 <div class="padding-x-y">
   <div class="d-flex flex-column gap-3">
-    <% @bookings.each_with_index do |booking, index| %>
-    <div class="card-product">
-      <%= link_to costume_path(booking.costume) , class:"text-decoration-none text-dark" do %>
-        <%= cl_image_tag booking.costume.photo.key, crop: :fill %>
-        <div class="card-product-infos">
-          <div class="border-bottom pb-2 mb-2">
-            <% if booking.costume.owner == current_user %>
-              <h3>Incoming reservation</h3>
-            <% else %>
-              <h3>Reservation request</h3>
-            <% end %>
-          </div>
-          <h2><%= booking.costume.name %></h2>
-            <strong> <p>Reservation status : <%= booking.status %></p> </strong>
-          <p><%= booking.costume.description %></p>
-          <p>Size : <%= booking.costume.age %> - <%= booking.costume.size %></p>
-          <p>Gender : <%= booking.costume.gender %></p>
-          <p>Start date : <%= booking.start_date %> - End date : <%= booking.end_date %></p>
-          <div class="card-product-btn">
-            <%= link_to "Cancel Booking", costume_booking_path(booking.costume, booking), class: "button" ,data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"}%>
-            <% if booking.costume.owner == current_user && booking.status != "Accepted" %>
-              <%= link_to "Accept", accept_path(booking.costume, booking), class:"button" %>
-            <% elsif booking.client == current_user %>
-              <%= link_to "Edit Booking", edit_costume_booking_path(booking.costume, booking), class:"button" %>
-            <% end %>
-          </div>
-        </div>
-        <% if booking.client == current_user %>
-            <%= render "reviews/form",
-                      costume: booking.costume,
-                      review: Review.new %>
-          <% end %>
-        <% end %>
-    </div>
-  <% end %>
-  </div>
 
+    <h2> Received bookings </h2>
+    <div class="cards">
+      <% @received_bookings.each do |booking| %>
+        <%= render partial: "bookingcard", locals: { booking: booking, client: false } %>
+      <% end %>
+    </div>
+
+
+    <h2> Sent bookings </h2>
+    <div class="cards">
+      <% @sent_bookings.each do |booking| %>
+        <%= render partial: "bookingcard", locals: { booking: booking, client: true } %>
+      <% end %>
+    </div>
+
+  </div>
 </div>

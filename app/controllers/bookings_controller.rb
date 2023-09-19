@@ -1,8 +1,7 @@
 class BookingsController < ApplicationController
   def my_bookings
-    @bookings = Booking.all.select do |booking|
-      booking.costume.owner == current_user || booking.user_id == current_user.id
-    end
+    @received_bookings = Booking.all.select { |booking| booking.costume.owner == current_user }
+    @sent_bookings = Booking.all.select { |booking| booking.user_id == current_user.id }
   end
 
   def new
