@@ -39,12 +39,12 @@
     </div>
 
     <% else %>
-      <div class="button-edit-delete">
-        <%= link_to "Edit", edit_costume_path(@costume), class:"button" %>
+      <div class="two-inputs">
+        <%= link_to "Edit", edit_costume_path(@costume), class:"full-width-button" %>
         <br>
 
         <%= link_to "Delete",
-            costume_path(@costume), class:"button",
+            costume_path(@costume), class:"full-width-button",
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
           %>
       </div>

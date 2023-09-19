@@ -1,41 +1,13 @@
-.button {
-    text-decoration: none;
-    background-color: #0D1282;
-    border-radius: 16px;
-    border: 4px double #cccccc;
-    color: #eeeeee;
-    text-align: center;
-    font-size: 12px;
-    padding: 6px;
-    width: 200px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    font-family: 'Oxygen', sans-serif;
-  }
-  .button:hover {
-    background-color: #ACB1D6;
-    transform: translate(0px,24px);
-    -webkit-transform: translate(0px,5px);
-    border-bottom: 1px solid;
-  }
-  .button-edit-delete {
-    display: flex;
-    justify-content: center;
-}
-
-
 .full-width-button {
   width: 100%;
-  border-radius: 8px;
   background-color: $purple;
   color: white;
-  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 4px;
   margin-bottom: 20px;
 }
+
 .full-width-button:hover {
   background-color: $darker-purple;
   color: white;

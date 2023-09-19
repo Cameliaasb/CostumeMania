@@ -14,7 +14,7 @@ class Costume < ApplicationRecord
   end
 
   SIZE = ["XS", "S", "M", "L", "XL", "XXL"]
-  GENDER = ["Men", "Women", "Unisex"]
+  GENDER = ["men", "women", "unisex"]
   CONDITION = ["Perfect", "Used"]
 
 end

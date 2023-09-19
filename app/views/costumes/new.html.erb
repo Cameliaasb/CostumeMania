@@ -1,10 +1,10 @@
 
-<div class="padding-x-y">
+<div class="container-form">
   <%= simple_form_for @costume do |f| %>
     <%= f.input :name, label: 'Choose a title for your costume', class:"input-shadow"%>
     <div class="multi-input">
-      <div class="three-row"><%= f.input :size, collection: Costume::SIZE, class:"input-shadow" %></div>
-      <div class="three-row"><%= f.input :gender, collection: Costume::GENDER, class:"input-shadow" %></div>
+      <div class="two-row"><%= f.input :size, collection: Costume::SIZE, class:"input-shadow" %></div>
+      <div class="two-row"><%= f.input :gender, collection: Costume::GENDER, class:"input-shadow" %></div>
     </div>
     <%= f.input :description, class:"input-shadow" %>
     <div class="multi-input">
@@ -13,6 +13,6 @@
     </div>
     <%= f.input :min_duration, label:"Minimum rental duration (in days)", class:"input-shadow" %>
     <%= f.input :photo, label:"Add a picture", as: :file, class:"input-shadow" %>
-    <%= f.button :submit, value:"Add a new costume", class:"btn-submit" %>
+    <%= f.button :submit, value:"Add a new costume", class:"full-width-button" %>
   <% end %>
 </div>
