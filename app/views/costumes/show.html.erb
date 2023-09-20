@@ -1,4 +1,9 @@
+    <%= link_to(:back, class:"text-decoration-none return-btn") do %>
+      <i class="fa-solid fa-chevron-left"></i>
+    <% end %>
+
 <div class="card-show">
+
       <%= cl_image_tag @costume.photo.key, height: 700, width: 500, crop: :fill %>
 
   <div class="card-footer">
