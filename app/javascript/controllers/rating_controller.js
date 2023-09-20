@@ -15,7 +15,7 @@ export default class extends Controller {
     input[0].value = rating
   }
 
-  toggle(e) {
+  valid(e) {
     e.preventDefault()
     console.log("dans le toggle")
     const rating = e.target.elements["review_rating"].value

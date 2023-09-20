@@ -1,4 +1,4 @@
-<%= form_for [costume, review], data: { action: "submit->rating#toggle"} do |f| %>
+<%= form_for [costume, review], data: { action: "submit->rating#valid"} do |f| %>
   <div class="review-form">
       <%= f.text_field :content, placeholder: "Leave a review" %>
       <div class="rate">

@@ -1,32 +1,36 @@
 <div class="padding-x-y">
   <div class="d-flex flex-column gap-3">
 
-    <h2> Received bookings </h2>
+    <h2> Requests to rent my costumes </h2>
     <div class="cards">
       <% @received_active_bookings.each do |booking| %>
-        <%= render partial: "bookingcard", locals: { booking: booking, client: false, active: true } %>
+        <%= render partial: "bookingcard", locals: { booking: booking, client: false, refused: false } %>
       <% end %>
     </div>
     <div class="cards">
-      <% @received_inactive_bookings.each do |booking| %>
-        <%= render partial: "bookingcard", locals: { booking: booking, client: false, active: false } %>
+      <% @received_refused_bookings.each do |booking| %>
+        <%= render partial: "bookingcard", locals: { booking: booking, client: false, refused: true } %>
       <% end %>
     </div>
 
 
-    <h2> Sent bookings </h2>
+    <h2> Costumes I want to rent </h2>
     <div data-controller="rating">
       <div class="cards">
         <% @sent_active_bookings.each do |booking| %>
-          <%= render partial: "bookingcard", locals: { booking: booking, client: true, active: true } %>
+          <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: false } %>
+        <% end %>
+        <% @sent_refused_bookings.each do |booking| %>
+          <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: false } %>
         <% end %>
       </div>
       <div class="cards">
-        <% @sent_inactive_bookings.each do |booking| %>
-          <%= render partial: "bookingcard", locals: { booking: booking, client: true, active: false } %>
+        <% @sent_refused_bookings.each do |booking| %>
+          <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: true } %>
         <% end %>
       </div>
     </div>
 
   </div>
 </div>
+<%= console %>

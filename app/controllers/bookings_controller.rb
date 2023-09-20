@@ -70,22 +70,22 @@ class BookingsController < ApplicationController
     booking.user_id == current_user.id
   end
 
-  def active(booking)
-    booking.status != "Refused"
+  def refused(booking)
+    booking.status == "Refused"
   end
 
   def update_booking_status
-    Booking.all.each do |booking|
+    Booking.where(status: "Pending").each do |booking|
       booking.status = "Refused" if booking.start_date.past?
       booking.save
     end
   end
 
   def categorize_bookings
-    @received_active_bookings = Booking.all.select { |booking| owner(booking) && active(booking) }
-    @received_inactive_bookings = Booking.all.select { |booking| owner(booking) && !active(booking) }
-    @sent_active_bookings = Booking.all.select { |booking| client(booking) && active(booking) }
-    @sent_inactive_bookings = Booking.all.select { |booking| client(booking) && !active(booking) }
+    @received_active_bookings = Booking.all.select { |booking| owner(booking) && !refused(booking) }
+    @received_refused_bookings = Booking.all.select { |booking| owner(booking) && refused(booking) }
+    @sent_active_bookings = Booking.all.select { |booking| client(booking) && !refused(booking) }
+    @sent_refused_bookings = Booking.all.select { |booking| client(booking) && refused(booking) }
   end
 
 end

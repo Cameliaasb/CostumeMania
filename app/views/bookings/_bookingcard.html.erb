@@ -1,4 +1,4 @@
-<div class="card-product <%= "inactive" if !active  %> <%= "accepted" if booking.status == "Accepted"  %>">
+<div class="card-product <%= "inactive" if refused  %> <%= "accepted" if booking.status == "Accepted"  %>">
 
   <%= link_to costume_path(booking.costume) , class:"text-decoration-none text-dark" do %>
     <%= cl_image_tag booking.costume.photo.key, crop: :fill %>
@@ -14,12 +14,12 @@
 
     <%# Action buttons %>
     <div class="multi-input mt-3">
-      <% if !client && active && booking.status != "Accepted" %>
+      <% if !client && !refused && booking.status != "Accepted" %>
         <%# As the owner you can accept or refuse a booking request %>
         <%= link_to "Accept", accept_path(booking.costume, booking), class:"full-width-button two-row" %>
         <%= link_to "Refuse", refuse_path(booking.costume, booking), class:"full-width-button two-row" %>
 
-      <% elsif client && active && booking.status != "Accepted" %>
+      <% elsif client && !refused && booking.status != "Accepted" %>
         <%# As the client you can edit or cancel a booking request if it hasn't been accepted yet %>
         <%= link_to "Edit", edit_costume_booking_path(booking.costume, booking), class:"full-width-button two-row" %>
         <%= link_to "Cancel", costume_booking_path(booking.costume, booking), class: "full-width-button two-row" ,data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"}%>
@@ -29,11 +29,11 @@
 
     <%# Review costume only if client, after returning it %>
     <div class="form-access">
-    <% if client && !active %>
-      <%= render "reviews/form",
-                  costume: booking.costume,
-                  review: Review.new %>
-    <% end %>
+      <% if client && !refused %>
+        <%= render "reviews/form",
+                    costume: booking.costume,
+                    review: Review.new %>
+      <% end %>
     </div>
 
   </div>
