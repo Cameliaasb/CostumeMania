@@ -1,20 +1,26 @@
-<form
+ <%# Partial called in costumes/index.html.erb %>
+
+ <form
   novalidate="novalidate" class="full-width"
   action="/costumes/" accept-charset="UTF-8" method="get"  >
+   <%# Filters are first processed by search_controller.js in the reload() method %>
+   <%# and then by the costumes_controller.rb %>
+
 
   <div class="search-form-control form-group" >
-      <h3 class="border-bottom"> Filter by</h3>
+    <h3 class="border-bottom"> Filter by</h3>
 
-
+    <%# Keyword search powered by Algolia %>
+    <%# Params[:keyword] %>
     <strong>Keyword</strong>
     <input
       class="form-control string required"
       type="text" name="keyword" placeholder="Search..."
       data-search-target="keyword" data-action="keyup->search#reload"
     />
-
     <div class="border-bottom"></div>
 
+    <%# Params[:gender] %>
     <strong>Category</strong>
     <div class="checkbox-options">
       <div>
@@ -28,9 +34,9 @@
         <label for="men"> Men</label>
       </div>
     </div>
-
     <div class="border-bottom"></div>
 
+    <%# Params[:size] %>
     <strong>Size</strong>
     <div class="checkbox-options" >
 
@@ -67,19 +73,21 @@
       </div>
 
     </div>
-
-
     <div class="border-bottom"></div>
+
+    <%# Params[:price] %>
     <p><strong>Price </strong>(€/day)</p>
       <div class="two-inputs">
 
+        <%# prices must be digits %>
         <input class="small-input" type="text" placeholder="min" pattern="^\d*$"
               data-action="keyup->search#reload" data-search-target="min">
         <input class="small-input" type="text" placeholder="max" pattern="^\d*$"
               data-action="keyup->search#reload" data-search-target="max">
       </div>
-
     <div class="border-bottom"></div>
+
+    <%# Params[:condition] %>
     <strong>Condition</strong>
     <div class="checkbox-options">
       <div>
@@ -93,7 +101,6 @@
         <label for="used"> Used</label>
       </div>
     </div>
-
 
 
   </div>

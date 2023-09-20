@@ -1,7 +1,10 @@
+<%# search_controller.js is called here to allow for filters to change the content of the #costumes div %>
+
 <div class="two-blocks-page" data-controller="search"
      data-search-max-value=<%= Costume.maximum(:price)%> >
 
   <div class="filter-block">
+    <%# All params are sent through this partial %>
     <%= render "filters" %>
   </div>
 

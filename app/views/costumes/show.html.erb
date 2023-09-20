@@ -4,9 +4,9 @@
 
 <div class="card-show">
 
-      <%= cl_image_tag @costume.photo.key, height: 700, width: 500, crop: :fill %>
+  <%= cl_image_tag @costume.photo.key, height: 700, width: 500, crop: :fill %>
 
-  <div class="card-footer">
+  <div class="card-description">
 
     <div>
       <div class="infos-bubbles">
@@ -15,7 +15,6 @@
       </div>
       <h2> <%= @costume.name %></h2>
       <h3> <%= @costume.price %>€ / Day </h3>
-
     </div>
 
     <div>
@@ -24,30 +23,29 @@
     </div>
 
     <% if current_user != @costume.owner %>
-
-    <div class="">
-      <%= simple_form_for [@costume, @booking] do |f| %>
-        <div class="form-blank">
-          <%= f.input :start_date,
-                  label: false,
-                  placeholder: "From",
-                  as: :string,
-                  input_html: { data: { controller: "datepicker" }} %>
-          <%= f.input :end_date,
-                  label: false,
-                  placeholder: "To",
-                  as: :string,
-                  input_html: { data: { controller: "datepicker" } } %>
-        </div>
-        <%= f.button :submit, class:"full-width-button", value:"Book now" %>
-      <% end %>
-    </div>
+      <%# clients can choose dates to send booking requests %>
+      <div class="">
+        <%= simple_form_for [@costume, @booking] do |f| %>
+          <div class="form-blank">
+            <%= f.input :start_date,
+                    label: false,
+                    placeholder: "From",
+                    as: :string,
+                    input_html: { data: { controller: "datepicker" }} %>
+            <%= f.input :end_date,
+                    label: false,
+                    placeholder: "To",
+                    as: :string,
+                    input_html: { data: { controller: "datepicker" } } %>
+          </div>
+          <%= f.button :submit, class:"full-width-button", value:"Book now" %>
+        <% end %>
+      </div>
 
     <% else %>
+      <%# Owner can edit or delete costume %>
       <div class="two-inputs">
         <%= link_to "Edit", edit_costume_path(@costume), class:"full-width-button" %>
-        <br>
-
         <%= link_to "Delete",
             costume_path(@costume), class:"full-width-button",
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
@@ -56,16 +54,15 @@
     <% end %>
 
     <div>
-    <% if @costume.reviews.count > 0 %>
-      <h3>Reviews</h3>
-      <ul>
-      <% @costume.reviews.each do |review| %>
-        <li>
-        <p> <%= review.content %> (<%= review.rating %>/5)</p>
-        </li>
+      <% if @costume.reviews.count > 0 %>
+      <%# Display reviews if any %>
+          <h3>Reviews</h3>
+          <ul>
+            <% @costume.reviews.each do |review| %>
+              <li> <p> <%= review.content %> (<%= review.rating %>/5) </p> </li>
+            <% end %>
+          </ul>
       <% end %>
-    <% end %>
-    </ul>
     </div>
   </div>
 </div>
