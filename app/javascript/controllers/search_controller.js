@@ -42,9 +42,8 @@ export default class extends Controller {
   reload() {
     // stimulus doc : working with external resources
     const baseUrl = `${window.location.href}`
-    const url = `${baseUrl}?gender=${this.gender()}&keyword=${this.keyword()}
-                  &size=${this.size()}&price=${this.price()}
-                  &condition=${this.condition()}`
+    const url = `${baseUrl}?gender=${this.gender()}&keyword=${this.keyword()}&size=${this.size()}&price=${this.price()}&condition=${this.condition()}`
+                  console.log(url)
     fetch(url)
       .then(response => response.text())
       .then(html => this.divTarget.innerHTML = this.parser.parseFromString(html, "text/html").getElementById("costumes").innerHTML)
