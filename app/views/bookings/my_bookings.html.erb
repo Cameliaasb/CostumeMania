@@ -15,15 +15,17 @@
 
 
     <h2> Sent bookings </h2>
-    <div class="cards">
-      <% @sent_active_bookings.each do |booking| %>
-        <%= render partial: "bookingcard", locals: { booking: booking, client: true, active: true } %>
-      <% end %>
-    </div>
-    <div class="cards">
-      <% @sent_inactive_bookings.each do |booking| %>
-        <%= render partial: "bookingcard", locals: { booking: booking, client: true, active: false } %>
-      <% end %>
+    <div data-controller="rating">
+      <div class="cards">
+        <% @sent_active_bookings.each do |booking| %>
+          <%= render partial: "bookingcard", locals: { booking: booking, client: true, active: true } %>
+        <% end %>
+      </div>
+      <div class="cards">
+        <% @sent_inactive_bookings.each do |booking| %>
+          <%= render partial: "bookingcard", locals: { booking: booking, client: true, active: false } %>
+        <% end %>
+      </div>
     </div>
 
   </div>
