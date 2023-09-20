@@ -10,6 +10,7 @@ export default class extends Controller {
 
   rate(e) {
     e.preventDefault()
+    e.target.previousElementSibling.checked = true
     const rating = e.target.innerHTML
     const input = this.rateInputTargets.filter(input => input.form === e.target.closest("form"))
     input[0].value = rating

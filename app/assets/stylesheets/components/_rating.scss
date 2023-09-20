@@ -19,17 +19,19 @@
 .rate:not(:checked) > label:before {
   content: '★ ';
 }
+
 .rate > input:checked ~ label {
-  color: #ffc700;
+  color: $gold;
 }
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
-  color: #deb217;
+  color: $gold;
 }
+
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
 .rate > input:checked ~ label:hover,
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
-  color: #c59b08;
+  color: $gold;
 }

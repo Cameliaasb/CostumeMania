@@ -28,9 +28,9 @@
     </div>
 
 
-    <%# Review costume only if client, after returning it && booking.end_date.past? %>
+    <%# Review costume only if client, after returning it  %>
     <div class="form-access">
-      <% if client && !refused && !reviewed  %>
+      <% if client && !refused && !reviewed && booking.end_date.past? %>
         <%= render "reviews/form",
                     costume: booking.costume,
                     review: Review.new %>

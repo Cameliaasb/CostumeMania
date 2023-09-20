@@ -16,7 +16,6 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to my_bookings_path
     else
-      # pas de gestion des erreurs par datepicker
       render :new, status: :unprocessable_entity
     end
   end
