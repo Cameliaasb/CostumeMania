@@ -17,11 +17,11 @@
     <h2> Costumes I want to rent </h2>
     <div data-controller="rating">
       <div class="cards">
-        <% @sent_active_bookings.each do |booking| %>
-          <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: false } %>
+        <% @sent_active_bookings_not_reviewed.each do |booking| %>
+          <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: false, reviewed: false } %>
         <% end %>
-        <% @sent_refused_bookings.each do |booking| %>
-          <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: false } %>
+        <% @sent_active_bookings_reviewed.each do |booking| %>
+          <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: false, reviewed: true} %>
         <% end %>
       </div>
       <div class="cards">

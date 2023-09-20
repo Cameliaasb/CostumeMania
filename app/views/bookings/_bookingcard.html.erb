@@ -22,14 +22,15 @@
       <% elsif client && !refused && booking.status != "Accepted" %>
         <%# As the client you can edit or cancel a booking request if it hasn't been accepted yet %>
         <%= link_to "Edit", edit_costume_booking_path(booking.costume, booking), class:"full-width-button two-row" %>
-        <%= link_to "Cancel", costume_booking_path(booking.costume, booking), class: "full-width-button two-row" ,data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"}%>
+        <%= link_to "Cancel", costume_booking_path(booking.costume, booking), class: "full-width-button two-row" ,
+            data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
       <% end %>
     </div>
 
 
-    <%# Review costume only if client, after returning it %>
+    <%# Review costume only if client, after returning it && booking.end_date.past? %>
     <div class="form-access">
-      <% if client && !refused %>
+      <% if client && !refused && !reviewed  %>
         <%= render "reviews/form",
                     costume: booking.costume,
                     review: Review.new %>

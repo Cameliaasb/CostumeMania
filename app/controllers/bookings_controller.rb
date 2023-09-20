@@ -62,6 +62,15 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:start_date, :end_date, :status)
   end
 
+  def categorize_bookings
+    @received_active_bookings = Booking.all.select { |b| owner(b) && !refused(b) }
+    @received_refused_bookings = Booking.all.select { |b| owner(b) && refused(b) }
+    @sent_active_bookings_not_reviewed = Booking.all.select { |b| client(b) && !refused(b) && !reviewed(b)}
+    @sent_active_bookings_reviewed = Booking.all.select { |b| client(b) && !refused(b) && reviewed(b)}
+    @sent_refused_bookings = Booking.all.select { |b| client(b) && refused(b) }
+  end
+
+
   def owner(booking)
     booking.costume.owner == current_user
   end
@@ -74,18 +83,17 @@ class BookingsController < ApplicationController
     booking.status == "Refused"
   end
 
+  def reviewed(booking)
+    if !booking.costume.reviews.empty?
+      booking.costume.reviews.where(user: current_user).present?
+    end
+  end
+
   def update_booking_status
     Booking.where(status: "Pending").each do |booking|
       booking.status = "Refused" if booking.start_date.past?
       booking.save
     end
-  end
-
-  def categorize_bookings
-    @received_active_bookings = Booking.all.select { |booking| owner(booking) && !refused(booking) }
-    @received_refused_bookings = Booking.all.select { |booking| owner(booking) && refused(booking) }
-    @sent_active_bookings = Booking.all.select { |booking| client(booking) && !refused(booking) }
-    @sent_refused_bookings = Booking.all.select { |booking| client(booking) && refused(booking) }
   end
 
 end
