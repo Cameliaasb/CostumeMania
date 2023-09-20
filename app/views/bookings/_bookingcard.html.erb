@@ -1,28 +1,30 @@
 <div class="card-product">
+  <%= link_to costume_path(booking.costume) , class:"text-decoration-none text-dark" do %>
+    <%= cl_image_tag booking.costume.photo.key, crop: :fill %>
+  <% end %>
 
   <%= link_to costume_path(booking.costume) , class:"text-decoration-none text-dark" do %>
-
-    <%= cl_image_tag booking.costume.photo.key, crop: :fill %>
     <div class="card-product-infos">
-            <h3><%= booking.costume.name %></h3>
-              <strong> <p>Reservation status : <%= booking.status %></p> </strong>
-            <p><%= booking.costume.description %></p>
-            <p>Size : <%= booking.costume.size %></p>
-            <p>Gender : <%= booking.costume.gender.capitalize %></p>
-            <p>Start date : <%= booking.start_date %> - End date : <%= booking.end_date %></p>
-            <div class="multi-input mt-3">
-              <% if !client && booking.status != "Accepted" %>
-                <%= link_to "Accept", accept_path(booking.costume, booking), class:"full-width-button two-row" %>
-              <% elsif client && booking.status != "Accepted" %>
-                <%= link_to "Edit", edit_costume_booking_path(booking.costume, booking), class:"full-width-button two-row" %>
-              <% end %>
-              <%= link_to "Cancel", costume_booking_path(booking.costume, booking), class: "full-width-button two-row" ,data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"}%>
-            </div>
-          <% if client && booking.end_date.past? %>
-            <%= render "reviews/form",
-                        costume: booking.costume,
-                        review: Review.new %>
-          <% end %>
+      <h3><%= booking.costume.name %></h3>
+      <strong> <p>Reservation status : <%= booking.status %></p> </strong>
+      <p><%= booking.costume.description %></p>
+      <p>Size : <%= booking.costume.size %></p>
+      <p>Gender : <%= booking.costume.gender.capitalize %></p>
+      <p>Start date : <%= booking.start_date %> - End date : <%= booking.end_date %></p>
+      <div class="multi-input mt-3">
+        <% if !client && active && booking.status != "Accepted" %>
+          <%= link_to "Accept", accept_path(booking.costume, booking), class:"full-width-button two-row" %>
+          <%= link_to "Refuse", accept_path(booking.costume, booking), class:"full-width-button two-row" %>
+        <% elsif client && active && booking.status != "Accepted" %>
+          <%= link_to "Edit", edit_costume_booking_path(booking.costume, booking), class:"full-width-button two-row" %>
+          <%= link_to "Cancel", costume_booking_path(booking.costume, booking), class: "full-width-button two-row" ,data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"}%>
+        <% end %>
+      </div>
+      <% if client && active && booking.end_date.past? %>
+        <%= render "reviews/form",
+                    costume: booking.costume,
+                    review: Review.new %>
+      <% end %>
     </div>
   <% end %>
 </div>

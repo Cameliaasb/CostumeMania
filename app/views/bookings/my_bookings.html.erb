@@ -3,16 +3,22 @@
 
     <h2> Received bookings </h2>
     <div class="cards">
-      <% @received_bookings.each do |booking| %>
-        <%= render partial: "bookingcard", locals: { booking: booking, client: false } %>
+      <% @received_active_bookings.each do |booking| %>
+        <%= render partial: "bookingcard", locals: { booking: booking, client: false, active: true } %>
+      <% end %>
+      <% @received_inactive_bookings.each do |booking| %>
+        <%= render partial: "bookingcard", locals: { booking: booking, client: false, active: false } %>
       <% end %>
     </div>
 
 
     <h2> Sent bookings </h2>
     <div class="cards">
-      <% @sent_bookings.each do |booking| %>
-        <%= render partial: "bookingcard", locals: { booking: booking, client: true } %>
+      <% @sent_active_bookings.each do |booking| %>
+        <%= render partial: "bookingcard", locals: { booking: booking, client: true, active: true } %>
+      <% end %>
+      <% @sent_inactive_bookings.each do |booking| %>
+        <%= render partial: "bookingcard", locals: { booking: booking, client: true, active: false } %>
       <% end %>
     </div>
 

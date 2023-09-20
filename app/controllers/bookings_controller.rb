@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def my_bookings
-    @received_bookings = Booking.all.select { |booking| booking.costume.owner == current_user }
-    @sent_bookings = Booking.all.select { |booking| booking.user_id == current_user.id }
+    update_booking_status
+    categorize_bookings
   end
 
   def new
@@ -54,4 +54,31 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :status)
   end
+
+  def owner(booking)
+    booking.costume.owner == current_user
+  end
+
+  def client(booking)
+    booking.user_id == current_user.id
+  end
+
+  def active(booking)
+    booking.status != "Refused"
+  end
+
+  def update_booking_status
+    Booking.all.each do |booking|
+      booking.status = "Refused" if booking.start_date.past?
+      booking.save
+    end
+  end
+
+  def categorize_bookings
+    @received_active_bookings = Booking.all.select { |booking| owner(booking) && active(booking) }
+    @received_inactive_bookings = Booking.all.select { |booking| owner(booking) && !active(booking) }
+    @sent_active_bookings = Booking.all.select { |booking| client(booking) && active(booking) }
+    @sent_inactive_bookings = Booking.all.select { |booking| client(booking) && !active(booking) }
+  end
+
 end
