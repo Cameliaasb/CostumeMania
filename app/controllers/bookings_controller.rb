@@ -28,6 +28,13 @@ class BookingsController < ApplicationController
     redirect_to my_bookings_path
   end
 
+  def refuse
+    @booking = Booking.find(params[:id])
+    @booking.status = "Refused"
+    @booking.save
+    redirect_to my_bookings_path
+  end
+
   def edit
     @booking = Booking.find(params[:id])
     @costume = @booking.costume

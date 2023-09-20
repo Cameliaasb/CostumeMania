@@ -1,5 +1,4 @@
 .card-product {
-  background: white;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -7,10 +6,20 @@
   // margin: 16px 16px;
   width: 600px;
   height: 350px;
+  background-color: white;
 }
 
+.inactive {
+  border: 1px solid $red;
+}
+
+.accepted {
+  border: 1px solid $green;
+}
+
+
 .card-product img {
-  height: 350px;
+  height: 100%;
   width: 300px;
   object-fit: cover;
 }

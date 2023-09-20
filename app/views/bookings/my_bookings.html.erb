@@ -6,6 +6,8 @@
       <% @received_active_bookings.each do |booking| %>
         <%= render partial: "bookingcard", locals: { booking: booking, client: false, active: true } %>
       <% end %>
+    </div>
+    <div class="cards">
       <% @received_inactive_bookings.each do |booking| %>
         <%= render partial: "bookingcard", locals: { booking: booking, client: false, active: false } %>
       <% end %>
@@ -17,6 +19,8 @@
       <% @sent_active_bookings.each do |booking| %>
         <%= render partial: "bookingcard", locals: { booking: booking, client: true, active: true } %>
       <% end %>
+    </div>
+    <div class="cards">
       <% @sent_inactive_bookings.each do |booking| %>
         <%= render partial: "bookingcard", locals: { booking: booking, client: true, active: false } %>
       <% end %>
