@@ -6,30 +6,20 @@ export default class extends Controller {
   static targets = ["rateInput"]
 
   connect() {
-    this.rateInputTargets.forEach(input => console.log("Inputs => ", input.form))
   }
 
-  rate1(e) {
+  rate(e) {
     e.preventDefault()
-    // console.log(e.target.closest("form"))
     const rating = e.target.innerHTML
     const input = this.rateInputTargets.filter(input => input.form === e.target.closest("form"))
-    // console.log(input)
-    // input[0].value = 1
-    // input[0].form.submit()
+    input[0].value = rating
   }
 
-  rate2(e) {
-    this.rateInputTarget.value = 2
-
+  toggle(e) {
+    e.preventDefault()
+    console.log("dans le toggle")
+    console.log(e.target)
+    // e.target.classList.add("d-none")
   }
 
-  rate3() {
-  }
-
-  rate4() {
-  }
-
-  rate5() {
-  }
 }
