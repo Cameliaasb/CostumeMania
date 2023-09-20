@@ -28,11 +28,13 @@
 
 
     <%# Review costume only if client, after returning it %>
+    <div class="form-access">
     <% if client && !active %>
       <%= render "reviews/form",
                   costume: booking.costume,
                   review: Review.new %>
     <% end %>
+    </div>
 
   </div>
 

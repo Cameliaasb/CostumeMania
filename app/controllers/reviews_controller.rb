@@ -8,18 +8,14 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.costume = Costume.find(params[:costume_id])
-
-    if @review.save
-      redirect_to my_bookings_path
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @review.user = current_user
+    @review.save
+    redirect_to my_bookings_path
   end
 
-  private 
-  
+  private
+
   def review_params
     params.require(:review).permit(:rating, :content)
   end
-  
 end

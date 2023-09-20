@@ -18,8 +18,11 @@ export default class extends Controller {
   toggle(e) {
     e.preventDefault()
     console.log("dans le toggle")
-    console.log(e.target)
-    // e.target.classList.add("d-none")
+    const rating = e.target.elements["review_rating"].value
+    const content = e.target.elements["review_content"].value
+    if (rating && content) {
+      e.target.submit()
+    }
   }
 
 }
