@@ -1,6 +1,9 @@
+<%# partial called by bookings/my_bookings.html.erb %>
+
 <div class="card-product <%= "inactive" if refused  %> <%= "accepted" if booking.status == "Accepted"  %>">
 
   <%= link_to costume_path(booking.costume) , class:"text-decoration-none text-dark" do %>
+    <%# The img is clickable and redirect to the costume show %>
     <%= cl_image_tag booking.costume.photo.key, crop: :fill %>
   <% end %>
 
@@ -28,7 +31,7 @@
     </div>
 
 
-    <%# Review costume only if client, after returning it  %>
+    <%# Review costume only if client, after returning it, if you haven't already reviewed %>
     <div class="form-access">
       <% if client && !refused && !reviewed && booking.end_date.past? %>
         <%= render "reviews/form",

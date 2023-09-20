@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
 
   def new
+    # Clients can review costumes.
+    # Accessible in view only for clients, after the booking end date
     @costume = Costume.find(params[:costume_id])
     @review = Review.new
   end

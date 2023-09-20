@@ -1,8 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Template le wagon
+// For testing purposes only
 export default class extends Controller {
   connect() {
-    console.log("Hello World!")
   }
 }

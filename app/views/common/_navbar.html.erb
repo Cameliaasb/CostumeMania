@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-3">
   <div class="container-fluid" >
 
     <%= link_to 'Shop', costumes_path, class:"nav-link" %>
@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <%# Ajouter un costume => si t'es pas connecté: ça ne s'affiche pas %>
+            <%# You can't add a costume if you are not signed in %>
             <% if user_signed_in? %>
             <%=link_to 'Add a costume', new_costume_path, class:"nav-link" %>
             <% end %>
@@ -23,12 +23,10 @@
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%=asset_path("user_logo.png") %> />
             <%# user actions %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%# Si t'es connecté %>
               <% if user_signed_in? %>
               <%=link_to 'My bookings', my_bookings_path, class:"dropdown-item" %>
               <%=link_to 'My costumes', my_costumes_path, class:"dropdown-item" %>
               <%=link_to 'Log-out', destroy_user_session_path, data:{turbo_method: :delete}, class:"dropdown-item" %>
-              <%# Si t'es pas connecté %>
               <% else %>
               <%=link_to 'Log-in', new_user_session_path, class:"dropdown-item" %>
               <%=link_to 'Sign-up', new_user_registration_path, class:"dropdown-item"%>

@@ -1,3 +1,5 @@
+<%# partial called by bookings/_bookingcard.html.erb %>
+
 <%= form_for [costume, review], data: { action: "submit->rating#valid"} do |f| %>
   <div class="review-form">
       <%= f.text_field :content, placeholder: "Leave a review" %>
