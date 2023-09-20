@@ -5,19 +5,33 @@ class CostumesController < ApplicationController
   before_action :set_costume, only: %i[edit update destroy]
 
   def index
+    # Only costumes that are not owned by user are displayed in index (user cannot book his own costumes)
     @costumes = Costume.where.not(owner: current_user)
+
+    # Params are sent via search_controller.js through the filter form
     if params[:gender].present?
+      # Unisex products are displayed for both genders
+      # Actioned when Category filter is checked
       @costumes = @costumes.where(gender: params[:gender]).or(@costumes.where(gender: "unisex"))
     end
     if params[:condition].present?
+      # Actioned when Condition filter is checked
       @costumes = @costumes.where(condition: params[:condition])
     end
+
+    # Keyword search powered by Algolia to permit typos
     @costumes = @costumes.search(params[:keyword]) if params[:keyword].present?
+
     if params[:size].present?
+      # Actioned when Size filter is checked. For example: if S & M are checked
+      # URL => ...&size=[S,M]... : Params[:size].scan(/\w+/) ==> ["S", "M"]
       @costumes = @costumes.select { |costume| params[:size].scan(/\w+/).include?(costume.size) }
     end
+
     if params[:price].present?
       # fix eval security breach
+      # Actioned when Price filter input not empty.
+      # URL => ...&price=(3..4)... : eval(params[:price]) ==> (3..4)
       @costumes = @costumes.select { |costume| eval(params[:price]).include?(costume.price) }
     end
   end
@@ -28,6 +42,7 @@ class CostumesController < ApplicationController
   end
 
   def new
+    # user if logged can create a new costume for others to rent
     @costume = Costume.new
   end
 
@@ -59,13 +74,14 @@ class CostumesController < ApplicationController
   end
 
   def my_costumes
+    # Costumes owned by current_user
     @costumes = Costume.where(owner: current_user)
   end
 
   private
 
   def costume_params
-    params.require(:costume).permit(:photo, :size, :price, :condition, :name, :min_duration, :gender, :description)
+    params.require(:costume).permit(:photo, :size, :price, :condition, :name, :gender, :description)
   end
 
   def set_costume

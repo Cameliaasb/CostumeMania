@@ -1,15 +1,19 @@
 class BookingsController < ApplicationController
   def my_bookings
+    ## Bookings that were pending and start date has come are automatically refused
     update_booking_status
+    ## Categorized into: Received or Sent. Refused or not. Reviewed or not.
     categorize_bookings
   end
 
   def new
+    ## A client can book a costume for given dates via booking request
     @costume = Costume.find(params[:costume_id])
     @booking = Booking.new
   end
 
   def create
+    ## Client asks to book a costume for given dates
     @booking = Booking.new(booking_params)
     @booking.costume = Costume.find(params[:costume_id])
     @booking.client = current_user
@@ -21,6 +25,8 @@ class BookingsController < ApplicationController
   end
 
   def accept
+    ## Owner of costume responds positively to client request
+    ## Only accessible in view if booking status still pending
     @booking = Booking.find(params[:id])
     @booking.status = "Accepted"
     @booking.save
@@ -28,6 +34,8 @@ class BookingsController < ApplicationController
   end
 
   def refuse
+    ## Owner of costume responds negatively to client request
+    ## Only accessible in view if booking status still pending
     @booking = Booking.find(params[:id])
     @booking.status = "Refused"
     @booking.save
@@ -35,12 +43,14 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    ## Client can change booking request dates if booking still pending
     @booking = Booking.find(params[:id])
     @costume = @booking.costume
     @booking.client = current_user
   end
 
   def update
+    ## Client changes booking request dates
     @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
       redirect_to my_bookings_path
@@ -50,6 +60,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    ## Client can cancel booking request if booking still pending
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to my_bookings_path, status: :see_other

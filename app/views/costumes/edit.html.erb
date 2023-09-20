@@ -11,7 +11,6 @@
         <div class="two-row"> <%= f.input :condition, collection: Costume::CONDITION, class:"input-shadow" %> </div>
       </div>
     <%= f.input :condition, collection: Costume::CONDITION, class:"input-shadow" %>
-    <%= f.input :min_duration, class:"input-shadow" %>
     <%= f.input :photo, as: :file, class:"input-shadow" %>
     <%= f.button :submit, value:"Save changes", class:"full-width-button" %>
   <% end %>

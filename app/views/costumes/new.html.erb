@@ -11,7 +11,6 @@
       <div class="two-row"> <%= f.input :price, label:"Price per day", class:"input-shadow" %> </div>
       <div class="two-row"> <%= f.input :condition, collection: Costume::CONDITION, class:"input-shadow" %> </div>
     </div>
-    <%= f.input :min_duration, label:"Minimum rental duration (in days)", class:"input-shadow" %>
     <%= f.input :photo, label:"Add a picture", as: :file, class:"input-shadow" %>
     <%= f.button :submit, value:"Add a new costume", class:"full-width-button" %>
   <% end %>
