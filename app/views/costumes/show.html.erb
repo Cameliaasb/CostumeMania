@@ -22,27 +22,25 @@
       <p><%= @costume.description %></p>
     </div>
 
-    <% if current_user != @costume.owner %>
+    <% if user_signed_in? && current_user != @costume.owner %>
       <%# clients can choose dates to send booking requests %>
       <div class="">
+      <strong>My dates</strong>
         <%= simple_form_for [@costume, @booking] do |f| %>
-          <div class="form-blank">
             <%= f.input :start_date,
                     label: false,
-                    placeholder: "From",
                     as: :string,
-                    input_html: { data: { controller: "datepicker" }} %>
+                    input_html: { data: { controller: "datepicker", action:"change->datepicker#convert" }} %>
             <%= f.input :end_date,
                     label: false,
                     placeholder: "To",
                     as: :string,
-                    input_html: { data: { controller: "datepicker" } } %>
-          </div>
+                    as: :hidden %>
           <%= f.button :submit, class:"full-width-button", value:"Book now" %>
         <% end %>
       </div>
 
-    <% else %>
+    <% elsif  current_user == @costume.owner %>
       <%# Owner can edit or delete costume %>
       <div class="two-inputs">
         <%= link_to "Edit", edit_costume_path(@costume), class:"full-width-button" %>
@@ -51,6 +49,9 @@
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
           %>
       </div>
+    <% else %>
+        <strong>Log-in to book this costume</strong>
+        <%=link_to 'Log-in', new_user_session_path, class:"full-width-button" %>
     <% end %>
 
     <div>
