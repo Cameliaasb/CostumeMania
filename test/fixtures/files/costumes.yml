@@ -1,0 +1,8 @@
+costume1:
+  name: 'Spider Man Costume'
+  size: Costume::SIZE.sample
+  condition: Costume::CONDITION.sample
+  price: 3
+  owner: user1
+  gender: "unisex"
+  description: "Dynamic Spider-Man suit: iconic red and blue webbed design muscle definition. Perfect for parties, events, and superhero fun."

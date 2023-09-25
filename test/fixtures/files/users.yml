@@ -1,0 +1,6 @@
+user1:
+  first_name: "Jack"
+  last_name: "Sparrow"
+  encrypted_password: "azerty"
+  email: "test@gmail.com"
+  address: "5 B Rue du Président Édouard Herriot, Lyon"
