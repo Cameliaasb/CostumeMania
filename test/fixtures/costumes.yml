@@ -3,6 +3,6 @@ costume1:
   size: Costume::SIZE.sample
   condition: Costume::CONDITION.sample
   price: 3
-  owner: user1
+  owner: jack
   gender: "unisex"
   description: "Dynamic Spider-Man suit: iconic red and blue webbed design muscle definition. Perfect for parties, events, and superhero fun."
