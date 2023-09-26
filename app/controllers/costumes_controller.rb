@@ -19,6 +19,13 @@ class CostumesController < ApplicationController
       @costumes = @costumes.where(condition: params[:condition])
     end
 
+    if params[:price].present?
+      # Actioned when Price filter input not empty.
+      # URL => ...&price=[3,6]... : costumes.where(price: 3..6)
+      price_range = params[:price].tr("[]", "").split(',').map(&:to_i)
+      @costumes = @costumes.where(price: price_range[0]..price_range[1])
+    end
+
     # Keyword search powered by Algolia to permit typos
     @costumes = @costumes.search(params[:keyword]) if params[:keyword].present?
 
@@ -26,13 +33,6 @@ class CostumesController < ApplicationController
       # Actioned when Size filter is checked. For example: if S & M are checked
       # URL => ...&size=[S,M]... : Params[:size].scan(/\w+/) ==> ["S", "M"]
       @costumes = @costumes.select { |costume| params[:size].scan(/\w+/).include?(costume.size) }
-    end
-
-    if params[:price].present?
-      # fix eval security breach
-      # Actioned when Price filter input not empty.
-      # URL => ...&price=(3..4)... : eval(params[:price]) ==> (3..4)
-      @costumes = @costumes.select { |costume| eval(params[:price]).include?(costume.price) }
     end
   end
 

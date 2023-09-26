@@ -49,7 +49,7 @@ export default class extends Controller {
     // Constructs a range in url :
       // min price is the one in input, otherwise is 0
       // max price is the one in input, otherwise is the highest price on index
-    return  `(${(min ? min : 0)}..${(max ? max : this.maxValue)})`
+    return  `[${(min ? min : 0)},${(max ? max : this.maxValue)}]`
   }
 
   condition () {
@@ -65,6 +65,7 @@ export default class extends Controller {
 
     // Page renders all results of the given url with filters
     // and replaces dynamically the content of index with the filtered content
+    console.log(url)
     fetch(url)
       .then(response => response.text())
       // the div target contains all existing results
