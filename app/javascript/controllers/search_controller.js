@@ -54,7 +54,7 @@ export default class extends Controller {
 
   condition () {
     // Gathers condition filter from checkboxes
-    return `${(this.perfectTarget.checked ? (this.usedTarget.checked ? "" : "Perfect") : (this.usedTarget.checked ? "Used" : ""))}`
+    return `${(this.perfectTarget.checked ? (this.usedTarget.checked ? "" : "perfect") : (this.usedTarget.checked ? "used" : ""))}`
   }
 
   reload() {

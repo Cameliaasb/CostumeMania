@@ -3,12 +3,12 @@ require 'algoliasearch-rails'
 
 User.destroy_all
 
-user1 = User.new(first_name: "Jack", last_name: "Sparrow", password: "azerty", email: "test@gmail.com", address: "5 B Rue du Président Édouard Herriot, Lyon")
-user2 = User.new(first_name: "Elizabeth", last_name: "Swan", password: "azerty", email: "toto@gmail.com", address: "101 Rue Montesquieu, Lyon")
-user3 = User.new(first_name: "William", last_name: "Turner", password: "azerty", email: "tata@gmail.com", address: "1 Avenue du Général de Gaulle, Lyon")
-user4 = User.new(first_name: "Hector", last_name: "Barbossa", password: "azerty", email: "tutu@gmail.com", address: "21 Rue des Alouettes, Lyon")
-user5 = User.new(first_name: "James", last_name: "Norington", password: "azerty", email: "titi@gmail.com", address: "113 Bd Yves Farge, Lyon")
-user6 = User.new(first_name: "Davy", last_name: "Jones", password: "azerty", email: "tete@gmail.com", address: "53 Rue des Bienvenus, Lyon")
+user1 = User.new(first_name: "Jack", last_name: "Sparrow", password: "azerty", email: "test@gmail.com")
+user2 = User.new(first_name: "Elizabeth", last_name: "Swan", password: "azerty", email: "toto@gmail.com")
+user3 = User.new(first_name: "William", last_name: "Turner", password: "azerty", email: "tata@gmail.com")
+user4 = User.new(first_name: "Hector", last_name: "Barbossa", password: "azerty", email: "tutu@gmail.com")
+user5 = User.new(first_name: "James", last_name: "Norington", password: "azerty", email: "titi@gmail.com")
+user6 = User.new(first_name: "Davy", last_name: "Jones", password: "azerty", email: "tete@gmail.com")
 
 puts "Loading images"
 file1 = URI.open("https://cdn.beebs.app/19180292-b886-40a4-9369-13557aef845f.jpg")
