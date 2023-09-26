@@ -17,9 +17,10 @@ class CostumesTest < ApplicationSystemTestCase
     fill_in "costume_name", with: "Test Name"
     select "S", from: "costume_size"
     select "unisex", from: "costume_gender"
-    select "Used", from: "costume_condition"
+    select "used", from: "costume_condition"
     fill_in "costume_description", with: "Test description"
     fill_in "costume_price", with: "1"
+    attach_file "costume_photo", "app/assets/images/spidey.jpeg"
 
     # redirects to costume show
     click_on "Add a new costume"

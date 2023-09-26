@@ -6,7 +6,7 @@ class Costume < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
-  validates :size, :condition, :price, :name, :gender, :description, presence: true
+  validates :size, :photo, :condition, :price, :name, :gender, :description, presence: true
 
   # Algolia only for keyword search
   algoliasearch do
