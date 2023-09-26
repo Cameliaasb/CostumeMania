@@ -1,8 +1,17 @@
-costume1:
+jack_costume:
   name: 'Spider Man Costume'
-  size: Costume::SIZE.sample
-  condition: Costume::CONDITION.sample
+  size: "S"
+  condition: "used"
   price: 3
   owner: jack
   gender: "unisex"
   description: "Dynamic Spider-Man suit: iconic red and blue webbed design muscle definition. Perfect for parties, events, and superhero fun."
+
+liz_costume:
+  name: 'Pirate'
+  size: "M"
+  condition: "new"
+  price: 3
+  owner: liz
+  gender: "unisex"
+  description: "Authentic pirate ensemble"

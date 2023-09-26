@@ -2,3 +2,7 @@ jack:
   first_name: "Jack"
   last_name: "Sparrow"
   email: "test@gmail.com"
+liz:
+  first_name: "Liz"
+  last_name: "Swan"
+  email: "toto@gmail.com"
