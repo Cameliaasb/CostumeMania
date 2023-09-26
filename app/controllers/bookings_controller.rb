@@ -75,11 +75,10 @@ class BookingsController < ApplicationController
   def categorize_bookings
     @received_active_bookings = Booking.all.select { |b| owner(b) && !refused(b) }
     @received_refused_bookings = Booking.all.select { |b| owner(b) && refused(b) }
-    @sent_active_bookings_not_reviewed = Booking.all.select { |b| client(b) && !refused(b) && !reviewed(b)}
-    @sent_active_bookings_reviewed = Booking.all.select { |b| client(b) && !refused(b) && reviewed(b)}
+    @sent_active_bookings_not_reviewed = Booking.all.select { |b| client(b) && !refused(b) && !reviewed(b) }
+    @sent_active_bookings_reviewed = Booking.all.select { |b| client(b) && !refused(b) && reviewed(b) }
     @sent_refused_bookings = Booking.all.select { |b| client(b) && refused(b) }
   end
-
 
   def owner(booking)
     booking.costume.owner == current_user
@@ -94,9 +93,7 @@ class BookingsController < ApplicationController
   end
 
   def reviewed(booking)
-    if !booking.costume.reviews.empty?
-      booking.costume.reviews.where(user: current_user).present?
-    end
+    booking.costume.reviews.present? && booking.costume.reviews.where(user: current_user).present?
   end
 
   def update_booking_status
@@ -105,5 +102,4 @@ class BookingsController < ApplicationController
       booking.save
     end
   end
-
 end

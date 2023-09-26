@@ -64,7 +64,7 @@ class CostumesTest < ApplicationSystemTestCase
   test "A user can book a costume he doesn't owns" do
     login_as users(:jack)
     visit costume_url(@liz_costume)
-    assert_selector "input[value='Book now']"
+    assert_selector "input[value='Book now']", "User logged but can't book a costume"
   end
 
   test "A user can't edit or delete costume he doesn't owns" do
@@ -73,5 +73,4 @@ class CostumesTest < ApplicationSystemTestCase
     assert_no_selector "a", text: "Edit"
     assert_no_selector "a", text: "Delete"
   end
-
 end
