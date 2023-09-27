@@ -15,6 +15,10 @@ CostumeMania is a dynamic marketplace designed during a LeWagon Bootcamp project
 Current Rails version is 7.0.7 \
 Current Ruby version is 3.1.2
 
+## Stimulus.js
+
+CostumeMania makes use of [Stimulus.js](https://stimulusjs.org/) to enhance the user experience and provide a smooth filtering feature.
+
 ## Configuration
 
 To configure the application, create a `.env` file and set the necessary environment variables.
