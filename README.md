@@ -1,6 +1,6 @@
 # CostumeMania
 
-CostumeMania is a dynamic marketplace designed during a LeWagon project, where we brought our coding skills to life in just one week.
+CostumeMania is a dynamic marketplace designed during a LeWagon Bootcamp project, where we brought our coding skills to life in just one week.
 
 ## Features
 
