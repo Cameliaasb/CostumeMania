@@ -20,7 +20,8 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to my_bookings_path
     else
-      render :new, status: :unprocessable_entity
+      flash[:alert] = "Please enter valid dates"
+      redirect_to costume_path(@booking.costume)
     end
   end
 
