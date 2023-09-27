@@ -12,9 +12,9 @@ class CostumeTest < ActiveSupport::TestCase
       assert_instance_of String, costume.name
       assert_instance_of String, costume.description
       assert_instance_of Integer, costume.price
-      assert_includes Costume::SIZE, costume.size, "Size not recognized, check for caps or typos"
-      assert_includes Costume::CONDITION, costume.condition, "Condition not recognized, check for caps or typos"
-      assert_includes Costume::GENDER, costume.gender, "Gender not recognized, check for caps or typos"
+      assert_includes Costume::SIZE, costume.size, "Size not recognized for #{costume.id}"
+      assert_includes Costume::CONDITION, costume.condition, "Condition not recognized for #{costume.id}"
+      assert_includes Costume::GENDER, costume.gender, "Gender not recognized for #{costume.id}"
     end
   end
 end
