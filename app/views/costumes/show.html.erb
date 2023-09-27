@@ -24,17 +24,18 @@
 
     <% if user_signed_in? && current_user != @costume.owner %>
       <%# clients can choose dates to send booking requests %>
-      <div class="">
+      <div data-controller="datepicker">
       <strong>My dates</strong>
         <%= simple_form_for [@costume, @booking] do |f| %>
+            <%= text_field_tag "test", "", data: { datepicker_target:"initialInput", action:"change->datepicker#convert" }  %>
             <%= f.input :start_date,
                     label: false,
-                    as: :string,
-                    input_html: { data: { controller: "datepicker", action:"change->datepicker#convert" }} %>
+                    as: :hidden,
+                    input_html: { data: {datepicker_target:"start"}} %>
             <%= f.input :end_date,
                     label: false,
-                    placeholder: "To",
-                    as: :hidden %>
+                    as: :hidden,
+                    input_html: { data: {datepicker_target:"end"}} %>
           <%= f.button :submit, class:"full-width-button", value:"Book now" %>
         <% end %>
       </div>
