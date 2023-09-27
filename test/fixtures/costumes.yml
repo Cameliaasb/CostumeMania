@@ -10,7 +10,7 @@ jack_costume:
 liz_costume:
   name: 'Pirate'
   size: "M"
-  condition: "new"
+  condition: "perfect"
   price: 3
   owner: liz
   gender: "unisex"
