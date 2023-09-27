@@ -4,15 +4,15 @@ CostumeMania is a dynamic marketplace designed during a LeWagon Bootcamp project
 
 ## Features
 
-- Explore a Diverse Costume Library: Browse through a collection of costumes.
-- Search: Find the right costume through search and filtering options.
-- Rent or List Your Costumes: Whether you want to dress up for a special occasion or share your costumes with others, CostumeMania offers an easy-to-use renting and listing process.
-- Review: Review a costume after you are done renting it.
+- **Explore a Diverse Costume Library:** Browse through a collection of costumes.
+- **Search:** Find the right costume through search and filtering options.
+- **Rent or List Your Costumes:** Whether you want to dress up for a special occasion or share your costumes with others, CostumeMania offers an easy-to-use renting and listing process.
+- **Review:** Review a costume after you are done renting it.
 
-----------
 
 ## Rails / Ruby version
-Current Rails version is 7.0.7
+
+Current Rails version is 7.0.7 \
 Current Ruby version is 3.1.2
 
 ## Configuration
@@ -83,8 +83,8 @@ To set up CostumeMania on your local machine, follow these steps:
 
 5. **Access CostumeMania:**
   
-   Open your web browser and navigate to http://localhost:3000 to access the CostumeMania application.
-   Now you have CostumeMania running locally on your machine. Enjoy exploring and using it! 🎉
+   Open your web browser and navigate to http://localhost:3000 to access the CostumeMania application.\
+   🎉 Now you have CostumeMania running locally on your machine. Enjoy exploring and using it! 🎉
 
 
 
