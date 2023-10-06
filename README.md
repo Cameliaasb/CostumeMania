@@ -48,6 +48,16 @@ If you're setting up CostumeMania for the first time or working on the project, 
 
 Make sure to set up these external dependencies properly for the full functionality of the CostumeMania project.
 
+## Testing
+CostumeMania is tested using Minitest, the default testing framework for Ruby on Rails. 
+To run the test suite, use the following command:
+
+``
+rails test
+``
+
+This will execute all the tests and provide you with feedback on the status of the application's functionality.
+
 ---------- 
 
 ## Getting Started
