@@ -10,6 +10,12 @@ CostumeMania is a dynamic marketplace designed during a LeWagon Bootcamp project
 - **Review:** Review a costume after you are done renting it.
 
 
+![screenshot](app/assets/images/screenshots/homepage.png?raw=true "App screenshot")
+![screenshot](app/assets/images/screenshots/index.png?raw=true "App screenshot")
+![screenshot](app/assets/images/screenshots/show.png?raw=true "App screenshot")
+![screenshot](app/assets/images/screenshots/bookings.png?raw=true "App screenshot")
+
+
 ## Rails / Ruby version
 
 Current Rails version is 7.0.7 \
@@ -49,7 +55,7 @@ If you're setting up CostumeMania for the first time or working on the project, 
 Make sure to set up these external dependencies properly for the full functionality of the CostumeMania project.
 
 ## Testing
-CostumeMania is tested using Minitest, the default testing framework for Ruby on Rails. 
+CostumeMania is tested using Minitest, the default testing framework for Ruby on Rails.
 To run the test suite, use the following command:
 
 ``
@@ -58,7 +64,7 @@ rails test
 
 This will execute all the tests and provide you with feedback on the status of the application's functionality.
 
----------- 
+----------
 
 ## Getting Started
 
@@ -96,11 +102,6 @@ To set up CostumeMania on your local machine, follow these steps:
    ```
 
 5. **Access CostumeMania:**
-  
+
    Open your web browser and navigate to http://localhost:3000 to access the CostumeMania application.\
    🎉 Now you have CostumeMania running locally on your machine. Enjoy exploring and using it! 🎉
-
-
-
-
-
