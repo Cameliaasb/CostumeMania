@@ -1,0 +1,6 @@
+booking_one:
+  start_date: 09/12/2022
+  end_date: 12/12/2022
+  client: jack
+  costume: liz_costume
+  status: accepted
