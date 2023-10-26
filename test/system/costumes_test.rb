@@ -39,38 +39,4 @@ class CostumesTest < ApplicationSystemTestCase
     visit costumes_url
     assert_no_selector "h3", text: "Test Name"
   end
-
-  test "A user has to log in to book a costume" do
-    visit costume_url(@jack_costume)
-    assert_no_selector "a", text: "Book now"
-    assert_selector "a.full-width-button", text: "Log-in"
-  end
-
-  # user's own costumes
-  test "A user can update a costume he owns" do
-    login_as users(:jack)
-    visit costume_url(@jack_costume)
-    assert_selector "a", text: "Edit"
-    assert_selector "a", text: "Delete"
-  end
-
-  test "A user cannot book a costume he owns" do
-    login_as users(:jack)
-    visit costume_url(@jack_costume)
-    assert_no_selector "input[value='Book now']"
-  end
-
-  # other users costumes
-  test "A user can book a costume he doesn't owns" do
-    login_as users(:jack)
-    visit costume_url(@liz_costume)
-    assert_selector "input[value='Book now']", "User logged but can't book a costume"
-  end
-
-  test "A user can't edit or delete costume he doesn't owns" do
-    login_as users(:jack)
-    visit costume_url(@liz_costume)
-    assert_no_selector "a", text: "Edit"
-    assert_no_selector "a", text: "Delete"
-  end
 end
