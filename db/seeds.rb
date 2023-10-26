@@ -11,27 +11,27 @@ user5 = User.new(first_name: "James", last_name: "Norington", password: "azerty"
 user6 = User.new(first_name: "Davy", last_name: "Jones", password: "azerty", email: "tete@gmail.com")
 
 puts "Loading images"
-file1 = URI.open("https://cdn.beebs.app/19180292-b886-40a4-9369-13557aef845f.jpg")
-file2 = URI.open("https://m.media-amazon.com/images/I/616zPKTFMUL._AC_UY780_.jpg")
-file3 = URI.open("https://cdn.webshopapp.com/shops/284974/files/356877679/great-pretenders-deguisement-pirate-corsaire.jpg")
-file4 = URI.open("https://newcossky.fr/cdn/shop/products/d251aabe01d5f69c9e2993a2b026ec34.jpg?v=1657607116")
-file5 = URI.open("https://static.smallable.com/811641-720x720q80/costume-de-docteur-avec-ses-accessoires.jpg")
-file6 = URI.open("https://img1.miccostumes.com/path-products/image-CTLM306A.jpg/&width=600&height=880&original=77s8AgZSGN6A")
-file7 = URI.open("https://cdn.s7.shopdisney.eu/is/image/DisneyStoreES/2844045240212M?fmt=webp&qlt=70&wid=1304&hei=1304")
-file8 = URI.open("https://lestresorsdeloulette.fr/wp-content/uploads/2021/10/deguisement-pompier-avec-accessoires-56-ans.jpeg")
-file9 = URI.open("https://newcossky.fr/cdn/shop/products/ef405df6fa0d3479aa2c18d209d5600b.jpg?v=1656913505")
-file10 = URI.open("https://www.events-tour.com/medias/images/costume-adulte-halloween-taille-s-m-spectre-fantome.jpg")
-file11 = URI.open("https://www.deguisement-mania.fr/wp-content/uploads/2020/09/Deguisement-princesse-Vaiana-Moana-adulte.jpg")
-file12 = URI.open("https://cdn.media.amplience.net/i/partycity/P889705?$large$&fmt=auto&qlt=default")
-file13 = URI.open("https://cdn.media.amplience.net/i/partycity/P889705?$large$&fmt=auto&qlt=default")
+file1 = URI.open("https://images.unsplash.com/photo-1635634429269-baa64e5f52b9?")
+file2 = URI.open("https://insertface.com/fb/860/cinderella-costume-adult-859685-h5jfm-fb.jpg")
+file3 = URI.open("https://i.pinimg.com/474x/ca/ab/90/caab909743bdf208ef9af83c21a8ab43.jpg")
+file4 = URI.open("https://images.unsplash.com/photo-1547355332-7c6fcb397868?")
+file5 = URI.open("https://images.pexels.com/photos/3526020/pexels-photo-3526020.jpeg")
+file6 = URI.open("https://images.pexels.com/photos/2116142/pexels-photo-2116142.jpeg")
+file7 = URI.open("https://images.pexels.com/photos/14143638/pexels-photo-14143638.jpeg")
+file8 = URI.open("https://images.pexels.com/photos/12654811/pexels-photo-12654811.jpeg")
+file9 = URI.open("https://images.pexels.com/photos/7180662/pexels-photo-7180662.jpeg")
+file10 = URI.open("https://images.pexels.com/photos/3149862/pexels-photo-3149862.jpeg")
+file11 = URI.open("https://images.unsplash.com/photo-1568417858195-270566c8656d?")
+file12 = URI.open("https://images.pexels.com/photos/6658693/pexels-photo-6658693.jpeg")
+file13 = URI.open("https://images.pexels.com/photos/14346784/pexels-photo-14346784.jpeg")
 puts "Finished loading images"
 
 Costume.destroy_all
 
 puts "Creating costumes"
 costume1 = Costume.new(
-  name: 'Spider Man Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 3, owner: user3, gender: "unisex",
+  name: 'Spider Man', size: "S",
+  condition: Costume::CONDITION.sample, price: 10, owner: user3, gender: "unisex",
   description: "Dynamic Spider-Man suit: iconic red and blue, webbed design,
   muscle definition. Perfect for parties, events, and superhero fun."
 )
@@ -39,8 +39,8 @@ costume1.photo.attach(io: file1, filename: "spider-man.png", content_type: "imag
 costume1.save
 
 costume2 = Costume.new(
-  name: 'Cinderella Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 1, owner: user3, gender: "women",
+  name: 'Cinderella', size: "XS",
+  condition: Costume::CONDITION.sample, price: 14, owner: user3, gender: "women",
   description: "Elegant Cinderella gown: enchanting blue, delicate details,
   flowing skirt. Ideal for events, parties, and magical moments."
 )
@@ -48,8 +48,8 @@ costume2.photo.attach(io: file2, filename: "cinderella.png", content_type: "imag
 costume2.save
 
 costume3 = Costume.new(
-  name: 'Pirate Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 2, owner: user1, gender: "men",
+  name: 'Pirate', size: "L",
+  condition: Costume::CONDITION.sample, price: 12, owner: user1, gender: "men",
   description: "Authentic pirate ensemble: tricorn hat, billowy shirt,
   weathered vest, tattered pants, boots, eyepatch, bandana, prop swords & treasure accents.
    High-quality, versatile, perfect for costumes, events, and parties."
@@ -58,8 +58,8 @@ costume3.photo.attach(io: file3, filename: "pirate.png", content_type: "image/jp
 costume3.save
 
 costume4 = Costume.new(
-  name: 'Batman Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 4, owner: user1, gender: "men",
+  name: 'Batman', size: "XL",
+  condition: Costume::CONDITION.sample, price: 10, owner: user1, gender: "men",
   description: "Sleek Batman costume: black, cape, emblem, utility belt.
   Ideal for parties, events, and superhero gatherings."
 )
@@ -67,17 +67,21 @@ costume4.photo.attach(io: file4, filename: "batman.png", content_type: "image/jp
 costume4.save
 
 costume5 = Costume.new(
-  name: 'Doctor Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 4, owner: user4, gender: "unisex",
-  description: "Classic doctor ensemble: white coat, stethoscope, scrubs.
-  Perfect for parties, events, and roleplay."
+  name: 'Chewbacca', size: Costume::SIZE.sample,
+  condition: Costume::CONDITION.sample, price: 14, owner: user4, gender: "unisex",
+  description: "Roar into the galaxy with this amazing Chewbacca Wookiee costume.
+  Channel the legendary Wookiee from the Star Wars universe and become a beloved
+  character from a galaxy far, far away. With a mask that perfectly captures Chewie's
+  expressive features, you'll be ready for any intergalactic adventure, cosplay event,
+  or themed party. Join the ranks of Star Wars enthusiasts and make a statement with
+  this remarkable Chewbacca costume."
 )
-costume5.photo.attach(io: file5, filename: "doctor.png", content_type: "image/jpg")
+costume5.photo.attach(io: file5, filename: "chewbaca.png", content_type: "image/jpg")
 costume5.save
 
 costume6 = Costume.new(
-  name: 'Mermaid Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 2, owner: user5, gender: "women",
+  name: 'Mermaid', size: Costume::SIZE.sample,
+  condition: Costume::CONDITION.sample, price: 20, owner: user5, gender: "women",
   description: "Enchanting mermaid attire: iridescent scales, flowing tail,
   seashell accents. Ideal for events, parties, and fantasy themes."
 )
@@ -85,66 +89,88 @@ costume6.photo.attach(io: file6, filename: "mermaid.png", content_type: "image/j
 costume6.save
 
 costume7 = Costume.new(
-  name: 'Iron man Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 5, owner: user1, gender: "men",
-  description: "Dynamic Iron Man suit: metallic red and gold, arc reactor,
-  detailed armor. Perfect for parties, events, and superhero experiences."
+  name: 'Futuristic Soldier', size: Costume::SIZE.sample,
+  condition: Costume::CONDITION.sample, price: 1, owner: user1, gender: "men",
+  description: "Step into a dystopian future with this captivating Futuristic Soldier with Sword
+  costume. This ensemble is perfect for those who are ready to embark on an intergalactic
+  adventure or face post-apocalyptic challenges. Ideal for science fiction
+  conventions, cosplay events, or any occasion where you want to embody a fierce and enigmatic
+  warrior of the future. Embrace your inner hero or antihero and stand out in this captivating
+  and otherworldly costume."
 )
-costume7.photo.attach(io: file7, filename: "iron-man.png", content_type: "image/jpg")
+costume7.photo.attach(io: file7, filename: "soldier.png", content_type: "image/jpg")
 costume7.save
 
 costume8 = Costume.new(
-  name: 'Fireman Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 3, owner: user1, gender: "men",
-  description: "Authentic firefighter gear: yellow coat, reflective stripes,
-  helmet, tools. Ideal for events, parties, and heroic roleplay."
+  name: 'Dia de los Muertos Men', size: "L",
+  condition: Costume::CONDITION.sample, price: 13, owner: user1, gender: "men",
+  description: "Embrace the vibrant and festive spirit of Dia de los Muertos with this
+  striking costume designed for men. Perfect for celebrating the
+  Day of the Dead, Halloween parties, or cultural events, this costume lets you honor
+  this beloved tradition with style and authenticity. Stand out and immerse yourself in
+  the rich heritage of Dia de los Muertos with this captivating costume for men."
 )
-costume8.photo.attach(io: file8, filename: "fireman.png", content_type: "image/jpg")
+costume8.photo.attach(io: file8, filename: "muertos.png", content_type: "image/jpg")
 costume8.save
 
 costume9 = Costume.new(
-  name: 'Thor Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 7, owner: user2, gender: "men",
-  description: "Unique Fireman Thor fusion: Mjolnir-themed axe, firefighter
-  outfit with cape. Perfect for creative events, parties, and memorable moments"
+  name: 'Alien', size: "M",
+  condition: Costume::CONDITION.sample, price: 20, owner: user2, gender: "women",
+  description: "Enter a world beyond the stars with this exquisite Beautiful Alien costume
+  designed exclusively for women. The costume is adorned with celestial patterns and cosmic embellishments that make you look like a being from
+  another dimension. Perfect for science fiction parties, space-themed
+  events, or simply when you want to stand out and showcase your unique, interstellar style.
+  Embrace your inner extraterrestrial beauty with this captivating alien costume."
 )
-costume9.photo.attach(io: file9, filename: "thor.png", content_type: "image/jpg")
+costume9.photo.attach(io: file9, filename: "alien.png", content_type: "image/jpg")
 costume9.save
 
 costume10 = Costume.new(
-  name: 'Ghost Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 4, owner: user5, gender: "unisex",
-  description: "Ethereal ghost attire: flowing white gown, pale makeup,
-  haunting aura. Ideal for spooky events, parties, and ghostly themes."
+  name: 'Santa', size: "XXL",
+  condition: Costume::CONDITION.sample, price: 12, owner: user5, gender: "unisex",
+  description: "Spread joy and holiday cheer with this classic Santa Claus costume.
+  Embody the spirit of Christmas and become the beloved symbol of generosity and
+  merriment. Whether you're playing Santa at a Christmas party, participating in a festive parade, or surprising children
+  on Christmas Eve, this costume will make you the center of the holiday festivities."
 )
-costume10.photo.attach(io: file10, filename: "ghost.png", content_type: "image/jpg")
+costume10.photo.attach(io: file10, filename: "santa.png", content_type: "image/jpg")
 costume10.save
 
 costume11 = Costume.new(
-  name: 'Moana Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 5, owner: user6, gender: "women",
-  description: "Adventure-ready Moana costume: tropical dress, necklace,
-  adventurous spirit. Perfect for events, parties, and Disney-themed fun."
+  name: 'Joker', size: "M",
+  condition: Costume::CONDITION.sample, price: 16, owner: user6, gender: "unisex",
+  description: "Unleash chaos and madness with this classic Joker costume,
+  paying homage to the legendary DC Comics character. The costume includes a
+  purple pinstripe suit, a green vest, a wild card bowtie, and the signature
+  Joker makeup kit. Perfect for Halloween, costume parties, or cosplay events,
+  this outfit lets you step into the shoes of the Clown Prince of Crime and
+  embrace your inner jester of anarchy."
 )
-costume11.photo.attach(io: file11, filename: "moana.png", content_type: "image/jpg")
+costume11.photo.attach(io: file11, filename: "joker.png", content_type: "image/jpg")
 costume11.save
 
 costume12 = Costume.new(
-  name: 'Skull king Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 7, owner: user6, gender: "unisex",
-  description: "Regal Skull King costume: ornate crown, dark robes, skeletal
-  accents. Ideal for themed events, parties, and dramatic flair."
+  name: 'Enchanting Forest Fairy', size: "L",
+  condition: Costume::CONDITION.sample, price: 15, owner: user6, gender: "women",
+  description: "This outfit transports you to an ethereal woodland with its flowing
+  and shimmering emerald green gown, adorned with delicate floral accents. The costume
+  also includes intricate fairy wings that glisten in the moonlight, and a crown of
+  flowers to complete your fairy transformation. Ideal for fantasy-themed parties,
+  Halloween, or any occasion where you want to bring a touch of enchantment to life."
 )
-costume12.photo.attach(io: file12, filename: "skull_king.png", content_type: "image/jpg")
+costume12.photo.attach(io: file12, filename: "fairy.png", content_type: "image/jpg")
 costume12.save
 
 costume13 = Costume.new(
-  name: 'Skull king Costume', size: Costume::SIZE.sample,
-  condition: Costume::CONDITION.sample, price: 7, owner: user2, gender: "unisex",
-  description: "Regal Skull King costume: ornate crown, dark robes, skeletal
-  accents. Ideal for themed events, parties, and dramatic flair."
+  name: 'Dia de los Muertos', size: "S",
+  condition: Costume::CONDITION.sample, price: 17, owner: user2, gender: "women",
+  description: "Embrace the spirit of Dia de los Muertos with this stunning costume for women.
+  This exquisite outfit features a vibrant and intricately designed sugar skull mask, a colorful
+  embroidered dress with traditional motifs, and a beautiful veil. Perfect for celebrating the
+  Day of the Dead, Halloween parties, or cultural events. Stand out and honor this beloved
+  Mexican tradition in style with this captivating costume."
 )
-costume13.photo.attach(io: file13, filename: "skull_king.png", content_type: "image/jpg")
+costume13.photo.attach(io: file13, filename: "dia_muertos.png", content_type: "image/jpg")
 costume13.save
 
 Costume.reindex!

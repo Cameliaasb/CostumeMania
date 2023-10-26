@@ -25,10 +25,21 @@
 .filter-block {
   padding: 4% 2%;
 
+  strong {
+    color: $darker-purple;
+  }
+
   .full-width {
     width: 150px;
     position: sticky;
     top: 120px;
   }
 
+}
+
+
+.white-card {
+  background-color: white;
+  padding: 32px;
+  border: 1px solid $purple;
 }

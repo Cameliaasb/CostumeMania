@@ -2,7 +2,6 @@
   margin: 32px 0px;
   display: flex;
   justify-content: center;
-  gap: 90px;
   width: 100%;
   padding: 8px;
 
@@ -14,10 +13,13 @@
   }
 
   .card-description {
-    width: 380px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    width:              460px;
+    display:            flex;
+    flex-direction:     column;
+    gap:                30px;
+    padding:            16px 32px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
   }
 
   h2 {
@@ -25,10 +27,6 @@
     font-size: 24px;
     font-weight: bold;
     color: $darker-purple;
-  }
-
-  h3 {
-    font-size: 18px;
   }
 
   p {
