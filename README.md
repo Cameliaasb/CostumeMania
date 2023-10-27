@@ -10,7 +10,7 @@ CostumeMania is a dynamic marketplace designed during a LeWagon Bootcamp project
 - **Review:** Review a costume after you are done renting it.
 
 
-![screenshot](app/assets/images/screenshots/homepage.png?raw=true "App screenshot")
+![screenshot](app/assets/images/screenshots/landingpage.png?raw=true "App screenshot")
 ![screenshot](app/assets/images/screenshots/index.png?raw=true "App screenshot")
 ![screenshot](app/assets/images/screenshots/show.png?raw=true "App screenshot")
 ![screenshot](app/assets/images/screenshots/bookings.png?raw=true "App screenshot")
