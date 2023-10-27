@@ -1,26 +1,26 @@
-<%= link_to(:back, class:"text-decoration-none return-btn") do %>
+<%= link_to(:back, class:"return-btn") do %>
    <i class="fa-solid fa-chevron-left"></i>
   <% end %>
 
-<div class="card-show">
+<div class="costume-show">
 
-  <%= cl_image_tag @costume.photo.key, height: 700, width: 500, crop: :fill %>
+  <%= cl_image_tag @costume.photo.key %>
 
   <div class="card-description">
 
     <div>
-      <div class="infos-bubbles">
-        <p>Size: <%= @costume.size %></p>
-        <p>Gender: <%= @costume.gender %></p>
+      <div class="infos-pills">
+        <p><%= @costume.size %></p>
+        <p><%= @costume.gender.capitalize %></p>
+        <p> <%= @costume.condition == "perfect" ? "Perfect condition" : "With signs of usage" %></p>
       </div>
       <h2> <%= @costume.name %></h2>
       <h3> <%= @costume.price %>€ / Day </h3>
     </div>
 
-    <div>
-      <p> Condition: <%= @costume.condition == "Perfect" ? "Perfect condition" : @costume.condition %></p>
-      <p><%= @costume.description %></p>
-    </div>
+
+    <p><%= @costume.description %></p>
+
 
     <% if user_signed_in? && current_user != @costume.owner %>
       <%# clients can choose dates to send booking requests %>

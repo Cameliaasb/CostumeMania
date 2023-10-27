@@ -1,0 +1,22 @@
+<%= link_to costume_path(costume) , class:"costume-card text-dark" do %>
+
+  <%= cl_image_tag costume.photo.key %>
+  <div class="costume-card-infos">
+    <h3><%= costume.name %></h3>
+    <div class="costume-infos">
+    <div>
+      <p>Size: <%= costume.size %></p>
+      <% if costume.reviews.count > 0 %>
+        <p>Rating : <%=
+          (costume.reviews.except{|r| r.rating.nil?}.sum(&:rating) / costume.reviews.except{|r| r.rating.nil?}.count.to_f ).round(1)
+          %>/ 5
+        </p>
+      <% else %>
+        <p>No reviews yet</p>
+      <% end %>
+    </div>
+    <strong> <%= costume.price %>€/day</strong>
+    </div>
+  </div>
+
+<% end %>

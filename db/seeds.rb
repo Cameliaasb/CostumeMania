@@ -150,7 +150,7 @@ costume11.photo.attach(io: file11, filename: "joker.png", content_type: "image/j
 costume11.save
 
 costume12 = Costume.new(
-  name: 'Enchanting Forest Fairy', size: "L",
+  name: 'Fairy', size: "L",
   condition: Costume::CONDITION.sample, price: 15, owner: user6, gender: "women",
   description: "This outfit transports you to an ethereal woodland with its flowing
   and shimmering emerald green gown, adorned with delicate floral accents. The costume

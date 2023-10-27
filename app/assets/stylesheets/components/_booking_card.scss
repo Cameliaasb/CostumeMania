@@ -1,0 +1,48 @@
+.booking-card {
+  box-shadow:       $shadow;
+  display:          flex;
+  align-items:      center;
+  border-radius:    $border-radius;
+  margin:           8px;
+  min-width:        400px;
+  flex-basis:       30%;
+  height:           240px;
+  background-color: white;
+
+  img {
+    height:         240px;
+    width:          180px;
+    object-fit:     cover;
+  }
+
+  h3 {
+    color: $darker-purple;
+  }
+
+  p {
+   font-size:       12px;
+   opacity: .7;
+   margin-bottom:   0;
+   margin-top:      8px;
+  }
+
+  .booking-card-infos {
+    padding:        16px;
+  }
+
+}
+
+.inactive {
+  border:           1px solid $red;
+}
+
+.accepted {
+  border:          1px solid $green;
+}
+
+
+.white-card {
+  background-color: white;
+  padding:            32px;
+  border:             1px solid $purple;
+}

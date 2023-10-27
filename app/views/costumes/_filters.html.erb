@@ -8,20 +8,19 @@
 
 
   <div class="search-form-control form-group" >
-    <h3 class="border-bottom"> Filter by</h3>
+    <h2> Filters</h2>
 
     <%# Keyword search powered by Algolia %>
     <%# Params[:keyword] %>
-    <strong>Keyword</strong>
+    <strong class="line purple">Keyword</strong>
     <input
       class="form-control string required"
       type="text" name="keyword" placeholder="Search..."
       data-search-target="keyword" data-action="keyup->search#reload"
     />
-    <div class="border-bottom"></div>
 
     <%# Params[:gender] %>
-    <strong>Category</strong>
+    <strong class="line purple">Category</strong>
     <div class="checkbox-options">
       <div>
         <input type="checkbox" id="women" name="women" value="false"
@@ -34,10 +33,9 @@
         <label for="men"> Men</label>
       </div>
     </div>
-    <div class="border-bottom"></div>
 
     <%# Params[:size] %>
-    <strong>Size</strong>
+    <strong class="line purple">Size</strong>
     <div class="checkbox-options" >
 
       <div>
@@ -73,10 +71,9 @@
       </div>
 
     </div>
-    <div class="border-bottom"></div>
 
     <%# Params[:price] %>
-    <p><strong>Price </strong>(€/day)</p>
+    <strong class="line purple">Price (€/day)</strong>
       <div class="two-inputs">
 
         <%# prices must be digits %>
@@ -85,10 +82,9 @@
         <input class="small-input" type="text" placeholder="max" pattern="^\d*$"
               data-action="keyup->search#reload" data-search-target="max">
       </div>
-    <div class="border-bottom"></div>
 
     <%# Params[:condition] %>
-    <strong>Condition</strong>
+    <strong class="line purple">Condition</strong>
     <div class="checkbox-options">
       <div>
         <input type="checkbox" name="perfect" value="false"

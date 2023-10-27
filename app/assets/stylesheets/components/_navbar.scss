@@ -1,17 +1,23 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  display: flex;
-  position: sticky;
-  top: 0px;
-  z-index: 1;
-  box-shadow: 3px 3px 20px $light-purple;
+.navbar-container {
+  justify-content:    space-between;
+  background:       white;
+  display:            flex;
+  position:           sticky;
+  top:                0px;
+  z-index:            1;
+  box-shadow:         3px 3px 20px $light-purple;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-container .navbar-collapse {
+  flex-grow:          0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 100px;
+.navbar-container .navbar-brand img {
+  width:            100px;
+}
+
+
+.avatar {
+  width:            40px;
+  border-radius:    50%;
 }

@@ -1,22 +1,20 @@
 .full-width-button {
-  width: 100%;
+  width:            100%;
   background-color: $purple;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  border-radius: 4px;
-  margin-bottom: 20px;
-}
-
-.full-width-button:hover {
-  background-color: $darker-purple;
-  color: white;
+  color:            white;
+  text-align:         center;
+  border-radius:      $border-radius;
+  margin-bottom:      20px;
+  &:hover {
+    background-color: $darker-purple;
+    color:           white;
+  }
 }
 
 .return-btn {
-  font-size: xx-large;
-  position: fixed;
-  color: $darker-purple;
-  left: 60px;
-  top: 130px;
+  font-size:        xx-large;
+  position:         fixed;
+  color:            $darker-purple;
+  left:             60px;
+  top:              130px;
 }

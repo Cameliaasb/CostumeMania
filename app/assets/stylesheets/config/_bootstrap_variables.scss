@@ -19,8 +19,37 @@ $danger:     $red;
 $warning:    $orange;
 
 // Buttons & inputs' radius
-$border-radius:    2px;
-$border-radius-lg: 2px;
+$border-radius:    4px;
+$border-radius-lg: 8px;
 $border-radius-sm: 2px;
 
-// Override other variables below!
+// Variables
+body {
+  background:   linear-gradient(to right, #9e71d242, #67dfad6e);
+}
+
+a {
+  text-decoration: none !important;
+}
+
+$shadow:        0 0 5px rgba(0,0,0,0.2);
+
+// forms
+.search-form-control {
+  display:              flex;
+  flex-direction:       column;
+  gap:                  16px;
+}
+
+
+.form-control {
+  background-color:   white;
+  box-shadow:           $shadow;
+  border:               1px solid $light-gray;
+  border-radius:        $border-radius;
+
+  &:focus {
+    border:             1px solid $green;
+    outline:            none !important;
+  }
+}

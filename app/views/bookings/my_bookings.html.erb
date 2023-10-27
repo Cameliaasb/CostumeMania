@@ -1,40 +1,38 @@
-<div class="padding-x-y">
-  <div class="d-flex flex-column gap-3">
-    <div class="white-card">
-      <h2> Requests to rent my costumes </h2>
-      <%# All booking requests received %>
-      <div class="cards">
-        <% @received_active_bookings.each do |booking| %>
-        <%# All booking requests received that I have not refused or have not expired %>
-          <%= render partial: "bookingcard", locals: { booking: booking, client: false, refused: false } %>
-        <% end %>
-        <% @received_refused_bookings.each do |booking| %>
-        <%# All booking requests received that I have refused or have expired (start date has passed) %>
-          <%= render partial: "bookingcard", locals: { booking: booking, client: false, refused: true } %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="white-card">
-      <h2> Costumes I want to rent </h2>
-      <%# All booking requests sent : the ones that have been accepted or pending. The ones I already reviewed. The ones that got refused %>
-      <div data-controller="rating">
-        <div class="cards">
-          <% @sent_active_bookings_not_reviewed.each do |booking| %>
-            <%# All booking requests sent that haven't been refused (either accepted or pending) %>
-            <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: false, reviewed: false } %>
-          <% end %>
-          <% @sent_active_bookings_reviewed.each do |booking| %>
-            <%# All booking requests sent that have been accepted, and end_date has passed + I already reviewed %>
-            <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: false, reviewed: true} %>
-          <% end %>
-          <% @sent_refused_bookings.each do |booking| %>
-            <%# All booking requests sent that have been refused %>
-            <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: true } %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
+<div class="d-flex flex-column gap-3 p-4">
+<div class="white-card">
+  <h2> Requests to rent my costumes </h2>
+  <%# All booking requests received %>
+  <div class="cards">
+    <% @received_active_bookings.each do |booking| %>
+    <%# All booking requests received that I have not refused or have not expired %>
+      <%= render partial: "bookingcard", locals: { booking: booking, client: false, refused: false } %>
+    <% end %>
+    <% @received_refused_bookings.each do |booking| %>
+    <%# All booking requests received that I have refused or have expired (start date has passed) %>
+      <%= render partial: "bookingcard", locals: { booking: booking, client: false, refused: true } %>
+    <% end %>
   </div>
+</div>
+
+<div class="white-card">
+  <h2> Costumes I want to rent </h2>
+  <%# All booking requests sent : the ones that have been accepted or pending. The ones I already reviewed. The ones that got refused %>
+  <div data-controller="rating">
+    <div class="cards">
+      <% @sent_active_bookings_not_reviewed.each do |booking| %>
+        <%# All booking requests sent that haven't been refused (either accepted or pending) %>
+        <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: false, reviewed: false } %>
+      <% end %>
+      <% @sent_active_bookings_reviewed.each do |booking| %>
+        <%# All booking requests sent that have been accepted, and end_date has passed + I already reviewed %>
+        <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: false, reviewed: true} %>
+      <% end %>
+      <% @sent_refused_bookings.each do |booking| %>
+        <%# All booking requests sent that have been refused %>
+        <%= render partial: "bookingcard", locals: { booking: booking, client: true, refused: true } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 </div>

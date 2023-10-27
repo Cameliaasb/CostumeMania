@@ -1,0 +1,16 @@
+.alert {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 1000;
+}
+
+.purple {
+  color: $darker-purple;
+}
+
+// container for devise authentication + edit/new costumes
+.container-form {
+  margin:       4% 30%;
+  max-width:    500px;
+}

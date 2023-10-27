@@ -1,20 +1,24 @@
 .banner {
-  background-size: cover;
-  background-position: center;
-  padding: 100px;
+  background-size:      cover;
+  background-position:  center;
+  padding:              100px;
 }
 
 .banner-text-container {
-  background-color: #FEFBF1;
-  border-radius: 4px;
-  width: 300px;
-  height: 300px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background-color:   white;
+  border-radius:      $border-radius;
+  width:              300px;
+  height:             300px;
+  padding:            24px;
+  display:            flex;
+  flex-direction:     column;
+  justify-content:    center;
 }
 
-.purple {
-  color: $darker-purple;
+.three-centered-blocks {
+  display:                grid;
+  grid-template-columns:  1fr 1fr 1fr ;
+  justify-content:        space-between;
+  justify-items:          center;
+  text-align:             center;
 }

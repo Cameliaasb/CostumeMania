@@ -1,18 +1,21 @@
 <%# partial called by bookings/my_bookings.html.erb %>
 
-<div class="card-product <%= "inactive" if refused  %> <%= "accepted" if booking.status == "Accepted"  %>">
+<div class="booking-card <%= "inactive" if refused  %> <%= "accepted" if booking.status == "Accepted"  %>">
 
-  <%= link_to costume_path(booking.costume) , class:"text-decoration-none text-dark" do %>
+  <%= link_to costume_path(booking.costume) , class:"text-dark" do %>
     <%# The img is clickable and redirect to the costume show %>
     <%= cl_image_tag booking.costume.photo.key, crop: :fill %>
   <% end %>
 
-  <div class="card-product-infos">
+  <div class="booking-card-infos">
     <h3><%= booking.costume.name %></h3>
     <strong> <p>Reservation status : <%= booking.status %></p> </strong>
-    <p>Size : <%= booking.costume.size %></p>
-    <p>Gender : <%= booking.costume.gender.capitalize %></p>
-    <p>Start date : <%= booking.start_date %> - End date : <%= booking.end_date %></p>
+    <div class="mt-3">
+      <p><strong> Size :</strong> <%= booking.costume.size %></p>
+      <p><strong>Gender : </strong><%= booking.costume.gender.capitalize %></p>
+      <p><strong>Start date : </strong><%= booking.start_date %></p>
+      <p><strong>End date :</strong> <%= booking.end_date %></p>
+    </div>
 
     <%# Action buttons %>
     <div class="multi-input mt-3">
@@ -35,7 +38,7 @@
       <% if client && !refused && !reviewed && booking.end_date.past? %>
         <%= render "reviews/form",
                     costume: booking.costume,
-                    review: Review.new %>
+                    review:  Review.new %>
       <% end %>
     </div>
 

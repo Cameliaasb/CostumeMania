@@ -1,36 +1,28 @@
 <%# search_controller.js is called here to allow for filters to change the content of the #costumes div %>
 
-<div class="two-blocks-page" data-controller="search"
+<div class="row" data-controller="search"
      data-search-max-value=<%= Costume.maximum(:price)%> >
 
-  <div class="filter-block">
-    <%# All params are sent through this partial %>
-    <%= render "filters" %>
+
+  <div class="col-2 p-5">
+    <%# All params are sent from this partial %>
+    <%= render "filters", class:"p-3" %>
   </div>
 
-  <div class="padding-x-y">
-  <%# Browse all costumes %>
-    <div class="cards" data-search-target="div" id="costumes">
+
+
+  <div class="col-10 p-3">
+    <%# Browse all costumes %>
+    <div class="cards m-3" data-search-target="div" id="costumes">
+
+
       <% @costumes.each do |costume| %>
-        <%= link_to costume_path(costume) , class:"costume-card text-decoration-none text-dark" do %>
-          <%= cl_image_tag costume.photo.key, height: 700, width: 500, crop: :fill %>
-          <div class="costume-card-infos">
-            <div>
-              <h3><%= costume.name %></h3>
-              <p>Size: <%= costume.size %></p>
-              <% if costume.reviews.count > 0 %>
-                <p>Rating : <%=
-                  (costume.reviews.except{|r| r.rating.nil?}.sum(&:rating) / costume.reviews.except{|r| r.rating.nil?}.count.to_f ).round(1)
-                  %>/ 5
-                </p>
-              <% else %>
-                <p>No reviews yet</p>
-              <% end %>
-            </div>
-          <h3> <%= costume.price %>€/day</h3>
-          </div>
-        <% end %>
+        <%= render "costumes/costume_card", costume: costume %>
       <% end %>
+
+
     </div>
   </div>
+
+
 </div>
