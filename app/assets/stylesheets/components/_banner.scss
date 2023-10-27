@@ -16,9 +16,15 @@
 }
 
 .three-centered-blocks {
-  display:                grid;
-  grid-template-columns:  1fr 1fr 1fr ;
+  display:                flex;
   justify-content:        space-between;
   justify-items:          center;
   text-align:             center;
+  gap:                    32px;
+  margin:                 100px;
+
+  .block {
+    flex-basis:           30%;
+    max-width:            400px;
+  }
 }
