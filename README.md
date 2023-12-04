@@ -15,17 +15,6 @@ CostumeMania is a dynamic marketplace designed during a LeWagon Bootcamp project
 ![screenshot](app/assets/images/screenshots/show.png?raw=true "App screenshot")
 ![screenshot](app/assets/images/screenshots/bookings.png?raw=true "App screenshot")
 
-## Accessing CostumeMania
-
-You can access CostumeMania using the following [URL](https://costume-mania-5f7608dd0856.herokuapp.com/).
-
-### Demo Account
-
-To explore the application and its features, you can use the following demo account credentials:
-
-- **email:** test@gmail.com
-- **Password:** azerty
-
 
 ## Rails / Ruby version
 
